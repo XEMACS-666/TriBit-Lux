@@ -225,7 +225,7 @@ LM339 Comparator Bank
        Arduino
 ```
 
-![V1.1 Schematic](Version_1.1/TriBitLux_V1_1_Photos/TriBit_Lux_V1_1.png)
+![V1.1 Schematic](Version_1.1/TriBitLux_V1_1_Photos/Schematic_TriBit-Lux_V1_1-LIC_2026-10-08.png)
 
 ![V1.1 Layout](Version_1.1/TriBitLux_V1_1_Photos/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png)
 
