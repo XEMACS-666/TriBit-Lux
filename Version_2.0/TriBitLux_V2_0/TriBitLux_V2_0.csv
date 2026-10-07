@@ -1,0 +1,11 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"Potentiometer";"Potentiometer_Runtron_RM-065_Vertical";1;"R_Potentiometer";;;
+2;"R18,R20,R8,R7,R17,R26,R22,R27,R24,R4,R19,R25,R1,R21,R2,R6,R23,R3,R5";"R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal";19;"10k";;;
+3;"5V";"PinHeader_2x01_P2.54mm_Vertical";1;"Conn_01x02_Pin";;;
+4;"LM339,LM339";"DIP-14_W7.62mm";2;"LM339";;;
+5;"74LS148";"DIP-16_W7.62mm";1;"74LS148";;;
+6;"7-Segment Display";"7SegmentLED_LTS6760_LTS6780";1;"D198K";;;
+7;"R11,R15,R16,R14,R12,R10,R13";"R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal";7;"220";;;
+8;"LDR";"R_LDR_D20mm_P15.5mm_Vertical";1;"LDR07";;;
+9;"74LS48";"DIP-16_W7.62mm";1;"74LS48";;;
+10;"0.1µF,0.1µF,0.1µF,0.1µF";"C_Disc_D10.0mm_W2.5mm_P5.00mm";4;"0.1u";;;

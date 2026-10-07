@@ -1,0 +1,11 @@
+Comment,Designator,Footprint,JLCPCB Part #
+Conn_01x02_Pin,J2,Connector_PinHeader_2.54mm:PinHeader_2x01_P2.54mm_Vertical,C557685
+R_Potentiometer,RV1,Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical,C5205021
+74LS48,U4,Package_DIP:DIP-16_W7.62mm,C22466304
+LM339,"U1,U2",Package_DIP:DIP-14_W7.62mm,C725324
+220,"R10,R11,R12,R13,R14,R15,R16",Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,C57439
+10k,"R1,R2,R3,R4,R5,R6,R7,R8,R17,R18,R19,R20,R21,R22,R23,R24,R25,R26,R27",Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,C57436
+0.1u,"C1,C2,C3,C4",Capacitor_THT:C_Disc_D10.0mm_W2.5mm_P5.00mm,C254085
+D198K,U5,Display_7Segment:7SegmentLED_LTS6760_LTS6780,C8093
+LDR07,R9,OptoDevice:R_LDR_D20mm_P17.5mm_Vertical,C779581
+74LS148,U3,Package_DIP:DIP-16_W7.62mm,C22384760

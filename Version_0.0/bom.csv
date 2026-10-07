@@ -1,0 +1,8 @@
+﻿Name,Quantity,Component
+"1",1," Breadboard Small"
+"U1, U2, U3, U4, U5, U6, U7",7," 741 Operational Amplifier"
+"R4, R6, R7, R8, R9, R10, R11, R16, R18, R19, R20, R21, R22, R23, R31",15,"10 kΩ Resistor"
+"Rpot1",1,"10 kΩ Potentiometer"
+"U10",1," Arduino Uno R3"
+"Digit2",1,"Cathode 7 Segment Display"
+"R24, R25, R26, R27, R28, R29, R30",7,"220 Ω Resistor"
