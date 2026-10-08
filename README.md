@@ -11,25 +11,25 @@ It is the **evolution of the circuit**:
 > **What started as Arduino-controlled logic gradually became hardware-controlled logic, then a breadboard prototype, and finally a PCB.**
 
 ```text
-        LIGHT
-          ↓
-        LDR
-          ↓
-     Analog Voltage
-          ↓
-   LM339 Comparators
-          ↓
-    Comparator Levels
-          ↓
-      74F148
-   Priority Encoder
-          ↓
-       3-bit Code
-          ↓
-       74LS48
-   Display Decoder
-          ↓
-     7-Segment
+       LIGHT
+         ↓
+       LDR
+         ↓
+    Analog Voltage
+         ↓
+  LM339 Comparators
+         ↓
+   Comparator Levels
+         ↓
+     74F148
+  Priority Encoder
+         ↓
+      3-bit Code
+         ↓
+      74LS48
+  Display Decoder
+         ↓
+    7-Segment
 ```
 
 ---
@@ -84,31 +84,32 @@ The Arduino handled the interpretation and seven-segment display control in soft
 
 ```text
 Potentiometer
-      │
-      ▼
+     │
+     ▼
 Comparator Bank
-      │
-      ▼
+     │
+     ▼
 Arduino
-      │
-      ▼
+     │
+     ▼
 7-Segment Display
 ```
 
 ### 🖼️ Simulation
 
-![TriBit Lux V0.0 simulation](Version_0.0/Tribit%20Lux%20V0.0.png)
+![TriBit Lux V0.0 simulation](Version_0.0/assets/Tribit%20Lux%20V0.0.png)
 
 **What this version proved:** the overall concept was workable.
 
 **What it didn't prove:** whether the system would behave like a real light sensor.
 
-**So the next question became:**  
+**So the next question became:**
+
 > What happens when the potentiometer is replaced by actual light?
 
 ### 🔗 Files
 
-[TinkerCAD simulation](https://www.tinkercad.com/things/60Tk7pVbgVW-tribit-lux-v00?sharecode=bsW5T545n6U2o7TxL7Ta_quI-Dl-KoERqczIX1Q8Fq4) · [Schematic](Version_0.0/Tribit%20Lux%20V0.0.pdf) · [Arduino sketch](Version_0.0/tribit_lux_v0_00.ino) · [BOM](Version_0.0/bom.csv)
+[TinkerCAD simulation](https://www.tinkercad.com/things/60Tk7pVbgVW-tribit-lux-v00?sharecode=bsW5T545n6U2o7TxL7Ta_quI-Dl-KoERqczIX1Q8Fq4) · [Schematic](Version_0.0/schematic/Tribit%20Lux%20V0.0.pdf) · [Arduino sketch](Version_0.0/firmware/tribit_lux_v0_00/tribit_lux_v0_00.ino) · [BOM](Version_0.0/bom/bom.csv)
 
 ---
 
@@ -127,23 +128,23 @@ An **LDR** was introduced together with **LM339 comparators**.
 The analog part of the system was now starting to resemble the intended hardware architecture.
 
 ```text
-             LIGHT
-               ↓
-              LDR
-               ↓
-        Voltage Divider
-               ↓
-        ┌──────────────┐
-        │   LM339 × 2  │
-        │  Comparators │
-        └──────┬───────┘
-               ↓
-        Digital Levels
-               ↓
-            Arduino
+            LIGHT
+              ↓
+             LDR
+              ↓
+       Voltage Divider
+              ↓
+       ┌──────────────┐
+       │   LM339 × 2  │
+       │  Comparators │
+       └──────┬───────┘
+              ↓
+       Digital Levels
+              ↓
+           Arduino
 ```
 
-![TriBit Lux V0.1 simulation](Version_0.1/Tribit%20Lux%20V0.1.png)
+![TriBit Lux V0.1 simulation](Version_0.1/assets/Tribit%20Lux%20V0.1.png)
 
 The Arduino was still doing the **priority encoding and display logic**, but the important change was that the input was now responding to the real physical quantity of interest.
 
@@ -151,7 +152,7 @@ The Arduino was still doing the **priority encoding and display logic**, but the
 
 ### 🔗 Files
 
-[TinkerCAD simulation](https://www.tinkercad.com/things/gNVAR2cQYVG-tribit-lux-v01?sharecode=9jLX_zzwRAG0_mHYH1R4YNfyqPdioSTKhPsh0a257ho) · [Schematic](Version_0.1/Tribit%20Lux%20V0.1.pdf) · [Arduino sketch](Version_0.1/tribit_lux_v0_01.ino) · [BOM](Version_0.1/bom.csv)
+[TinkerCAD simulation](https://www.tinkercad.com/things/gNVAR2cQYVG-tribit-lux-v01?sharecode=9jLX_zzwRAG0_mHYH1R4YNfyqPdioSTKhPsh0a257ho) · [Schematic](Version_0.1/schematic/Tribit%20Lux%20V0.1.pdf) · [Arduino sketch](Version_0.1/firmware/tribit_lux_v0_01/tribit_lux_v0_01.ino) · [BOM](Version_0.1/bom/bom.csv)
 
 ---
 
@@ -167,7 +168,11 @@ The next step was simple:
 
 The LDR and two LM339s were moved onto a physical breadboard, and an **Arduino Nano** was used to read the comparator outputs and control the display.
 
-![V1.0 breadboard](Version_1.0/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4)
+### ✨ 7-segment pin visualizer
+
+![Animated TriBit Lux 7-segment pin visualizer](Version_1.0/assets/TriBitLux_pin_visualizer_demo_dark.gif)
+
+*An animated guide to the seven-segment display pin layout. The breadboard recording is a video, so use the link below to open it.*
 
 The important lesson here was that simulation and physical electronics are not quite the same thing.
 
@@ -188,7 +193,7 @@ That raised the next engineering question:
 
 ### 🔗 Files
 
-[Breadboard video](Version_1.0/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4) · [7-segment pin visualizer](Version_1.0/TriBitLux_V1_0_pin_visualizer.html) · [Serial visualizer sketch](Version_1.0/TriBitLux_V1_0_visualizer.ino)
+[▶️ Watch the breadboard video](Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4) · [Open the interactive 7-segment pin visualizer](Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [Serial visualizer sketch](Version_1.0/firmware/TriBitLux_V1_0_visualizer/TriBitLux_V1_0_visualizer.ino)
 
 > The visualizer sketch is a learning/debugging aid, not the complete V1.0 firmware.
 
@@ -208,26 +213,30 @@ the circuit now contains a dedicated **74F148 priority encoder**.
 
 ```text
 LM339 Comparator Bank
-          │
-          ▼
-     Thermometer
-        Code
-          │
-          ▼
-       74F148
-   Priority Encoder
-          │
-          ▼
-       3-bit
-       Output
-          │
-          ▼
-       Arduino
+         │
+         ▼
+    Thermometer
+       Code
+         │
+         ▼
+      74F148
+  Priority Encoder
+         │
+         ▼
+      3-bit
+      Output
+         │
+         ▼
+      Arduino
 ```
 
-![V1.1 Schematic](Version_1.1/TriBitLux_V1_1_Photos/TriBit_Lux_V1_1.png)
+### 🖼️ Prototype and layout
 
-![V1.1 Layout](Version_1.1/TriBitLux_V1_1_Photos/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png)
+![V1.1 schematic](Version_1.1/assets/TriBit_Lux_V1_1.png)
+
+![V1.1 PCB layout](Version_1.1/assets/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png)
+
+![V1.1 prototype](Version_1.1/assets/TriBitLux_V1_1.jpeg)
 
 ### Why this mattered
 
@@ -239,10 +248,6 @@ The goal was to understand the boundary between **analog hardware, digital logic
 
 The 74F148 now handled the priority encoding, while the Nano simply observed the result.
 
-### Physical prototype
-
-![V1.1 prototype](Version_1.1/TriBitLux_V1_1_Photos/TriBitLux_V1_1.jpeg)
-
 This version marked the transition from:
 
 **"Arduino reads the circuit"**
@@ -253,7 +258,7 @@ to
 
 ### 🔗 Files
 
-[Schematic](Version_1.1/Schematic_TriBitLux_V1_1-LIC_2026-10-06.pdf) · [PCB](Version_1.1/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06.pdf) · [BOM](Version_1.1/BOM_TriBitLux_V1_1-LIC_2026-10-06.csv) · [Gerbers](Version_1.1/Gerber_TriBitLux_V1_1-LIC_PCB_TriBitLux_V1_1-LIC_2_2026-10-06.zip)
+[Schematic](Version_1.1/schematic/) · [PCB](Version_1.1/pcb/) · [BOM](Version_1.1/bom/) · [Gerbers](Version_1.1/gerbers/)
 
 ---
 
@@ -287,11 +292,9 @@ LM339
 
 ### Physical build
 
-![V1.2 prototype 1](Version_1.2/TriBitLux_V1_2_135115.jpg)
-
-![V1.2 prototype 2](Version_1.2/TriBitLux_V1_2_135217.jpg)
-
-![V1.2 prototype 3](Version_1.2/TriBitLux_V1_2_140313.jpg)
+| Prototype view 1 | Prototype view 2 | Prototype view 3 |
+|:---:|:---:|:---:|
+| <img src="Version_1.2/assets/TriBitLux_V1_2_135115.jpg" width="220" alt="V1.2 prototype view 1"> | <img src="Version_1.2/assets/TriBitLux_V1_2_135217.jpg" width="220" alt="V1.2 prototype view 2"> | <img src="Version_1.2/assets/TriBitLux_V1_2_140313.jpg" width="220" alt="V1.2 prototype view 3"> |
 
 Now the complete display path was handled by dedicated hardware.
 
@@ -303,7 +306,7 @@ This was an important milestone because the seven-segment display was now **phys
 
 ### 🔗 Files
 
-[Nano serial-monitor sketch](Version_1.2/TriBitLux_V1_2_LIC.ino) · [Video](Version_1.2/TriBitLux_V1_2_0732.mov)
+[Nano serial-monitor sketch](Version_1.2/firmware/TriBitLux_V1_2_LIC/TriBitLux_V1_2_LIC.ino) · [Video](Version_1.2/assets/)
 
 > The sketch also contains seven-segment output code for experimentation, but that is **not** the display path used in the photographed V1.2 build.
 
@@ -321,7 +324,15 @@ But during development, another question became useful:
 
 So a **16×2 I²C LCD** was added.
 
-![V1.3 prototype 1](Version_1.3/TriBitLux_V1_3%20%281%29.jpg)
+![Animated V1.3 light-level demonstration](Version_1.3/assets/TriBitLux_5V_demo_dark.gif)
+
+*Animated 5 V demonstration of the TriBit Lux indicator.*
+
+### 🖼️ Prototype gallery
+
+| Prototype view 1 | Prototype view 2 |
+|:---:|:---:|
+| ![V1.3 prototype with LCD, view 1](Version_1.3/assets/TriBitLux_V1_3%20%281%29.jpg) | ![V1.3 prototype with LCD, view 2](Version_1.3/assets/TriBitLux_V1_3%20%282%29.jpg) |
 
 This version wasn't intended to replace the hardware logic.
 
@@ -330,15 +341,15 @@ Instead, it became a **development and monitoring stage**.
 The Nano reads the LDR voltage through its analog input and calculates the displayed level in software.
 
 ```text
-             LDR
-              │
-              ├──────────► LM339 → 74F148 → 74LS48 → 7-Segment
-              │
-              ▼
-          Arduino ADC
-              │
-              ▼
-             LCD
+            LDR
+             │
+             ├──────────► LM339 → 74F148 → 74LS48 → 7-Segment
+             │
+             ▼
+         Arduino ADC
+             │
+             ▼
+            LCD
 ```
 
 This is important because **V1.3's LCD firmware does not read the 74F148 outputs**.
@@ -349,7 +360,7 @@ That made the LCD useful for understanding what was happening inside the analog 
 
 ### 🔗 Files
 
-[Photo 1](Version_1.3/TriBitLux_V1_3%20%281%29.jpg) · [Photo 2](Version_1.3/TriBitLux_V1_3%20%282%29.jpg) · [LCD visualization](Version_1.3/TriBitLux_V1_3.html) · [LCD sketch](Version_1.3/TriBitLux_V1_3.ino)
+[Photo 1](Version_1.3/assets/TriBitLux_V1_3%20%281%29.jpg) · [Photo 2](Version_1.3/assets/TriBitLux_V1_3%20%282%29.jpg) · [Open the LCD visualization (HTML)](Version_1.3/assets/TriBitLux_V1_3.html) · [LCD sketch](Version_1.3/firmware/TriBitLux_V1_3/TriBitLux_V1_3.ino)
 
 ---
 
@@ -371,11 +382,15 @@ That became **V2.0**.
 
 The circuit was recreated in **KiCad** as an editable schematic and PCB layout.
 
-![V2.0 schematic](Version_2.0/Output/TriBit_Lux_V2_0_Schematics.png)
+### 🖼️ V2.0 design gallery
 
-![V2.0 PCB_Layout](Version_2.0/Output/TriBitLux_V2_0.png)
+| Schematic | PCB layout |
+|:---:|:---:|
+| ![V2.0 schematic](Version_2.0/assets/TriBit_Lux_V2_0_Schematics.png) | ![V2.0 PCB layout](Version_2.0/assets/TriBitLux_V2_0.png) |
 
-![V2.0 PCB](Version_2.0/Output/TriBitLux_V2_0%20(Top).png)
+| PCB top view | PCB bottom view |
+|:---:|:---:|
+| ![V2.0 PCB top view](Version_2.0/assets/TriBitLux_V2_0_Top.png) | ![V2.0 PCB bottom view](Version_2.0/assets/TriBitLux_V2_0_Bottom.png) |
 
 ### What changed?
 
@@ -400,39 +415,39 @@ The board remains intentionally friendly to manual assembly, inspection and modi
 # 🧩 V2.0 Hardware Architecture
 
 ```text
-                       ☀️ LIGHT
-                          │
-                          ▼
-                    ┌───────────┐
-                    │    LDR    │
-                    └─────┬─────┘
-                          │
-                    Sensor Voltage
-                          │
-                          ▼
-               ┌────────────────────┐
-               │      LM339 × 2     │
-               │  Comparator Bank   │
-               └─────────┬──────────┘
-                         │
-                   7 comparator
-                     decisions
+                      ☀️ LIGHT
                          │
                          ▼
-                 ┌──────────────┐
-                 │    74F148    │
-                 │   Priority   │
-                 │    Encoder   │
-                 └───────┬──────┘
+                   ┌───────────┐
+                   │    LDR    │
+                   └─────┬─────┘
                          │
-                       3 bits
-                    ┌────┴────┐
-                    ▼         ▼
-               Debug/Test   74LS48
-                               │
-                               ▼
-                           7-Segment
-                            Display
+                   Sensor Voltage
+                         │
+                         ▼
+              ┌────────────────────┐
+              │      LM339 × 2     │
+              │  Comparator Bank   │
+              └─────────┬──────────┘
+                        │
+                  7 comparator
+                    decisions
+                        │
+                        ▼
+                ┌──────────────┐
+                │    74F148    │
+                │   Priority   │
+                │    Encoder   │
+                └───────┬──────┘
+                        │
+                      3 bits
+                   ┌────┴────┐
+                   ▼         ▼
+              Debug/Test   74LS48
+                              │
+                              ▼
+                          7-Segment
+                           Display
 ```
 
 The important architectural change is that the **core signal path no longer depends on the Arduino**.
@@ -441,7 +456,7 @@ The important architectural change is that the **core signal path no longer depe
 
 # 🏗️ Inside V2.0
 
-The editable project is kept here:
+The editable KiCad project is kept here:
 
 ```text
 Version_2.0/
@@ -451,14 +466,32 @@ Version_2.0/
     └── TriBitLux_V2_0.kicad_pcb
 ```
 
-Manufacturing-related files are kept separately:
+Only the actual KiCad design files are tracked.
+
+KiCad-generated temporary files such as:
+
+```text
+fp-info-cache
+*.kicad_prl
+*.kicad_sch-bak
+*-backups/
+```
+
+are intentionally excluded from version control.
+
+Manufacturing outputs are kept separately:
 
 ```text
 Version_2.0/
-├── Gerber/
-└── JLCPCB/
-    ├── TriBitLux_V2_0_JLCPCB_BOM.csv
-    └── TriBitLux_V2_0_JLCPCB_CPL.csv
+├── gerber/
+│   └── gerber.zip
+├── bom/
+├── cpl/
+├── schematic/
+└── TriBitLux_V2_0/
+    ├── TriBitLux_V2_0.kicad_pro
+    ├── TriBitLux_V2_0.kicad_sch
+    └── TriBitLux_V2_0.kicad_pcb
 ```
 
 ### Current status
@@ -467,25 +500,25 @@ Version_2.0/
 
 ```text
 Schematic
-    ✅
-     ↓
+   ✅
+    ↓
 PCB Layout
-    ✅
-     ↓
+   ✅
+    ↓
 Gerber Generation
-    ✅
-     ↓
+   ✅
+    ↓
 Manufacturing
-    ⏳
-     ↓
+   ⏳
+    ↓
 Assembly
-    ⏳
-     ↓
+   ⏳
+    ↓
 Power-up
-    ⏳
-     ↓
+   ⏳
+    ↓
 Real-world validation
-    ⏳
+   ⏳
 ```
 
 ---
@@ -519,25 +552,25 @@ It will begin with a box containing a fabricated PCB.
 
 ```text
 PCB Arrival
-    ↓
+   ↓
 Visual Inspection
-    ↓
+   ↓
 Continuity Check
-    ↓
+   ↓
 5 V Rail Check
-    ↓
+   ↓
 IC Power Verification
-    ↓
+   ↓
 Comparator Threshold Test
-    ↓
+   ↓
 74F148 Verification
-    ↓
+   ↓
 74LS48 + Display Test
-    ↓
+   ↓
 LDR Response
-    ↓
+   ↓
 Sensitivity Adjustment
-    ↓
+   ↓
 Full Brightness Test
 ```
 
@@ -553,68 +586,90 @@ Until then:
 # 📂 Repository Structure
 
 ```text
-TriBit-Lux/
+TriBit Lux/
+│
+├── README.md
+├── .gitignore
 │
 ├── Version_0.0/
-│   ├── TinkerCAD
-│   ├── Schematic
-│   ├── Arduino
-│   └── BOM
+│   ├── assets/
+│   │   └── Tribit Lux V0.0.png
+│   ├── bom/
+│   │   └── bom.csv
+│   ├── firmware/
+│   │   └── tribit_lux_v0_00/
+│   │       └── tribit_lux_v0_00.ino
+│   └── schematic/
+│       └── Tribit Lux V0.0.pdf
 │
 ├── Version_0.1/
-│   ├── TinkerCAD
-│   ├── Schematic
-│   ├── Arduino
-│   └── BOM
+│   ├── assets/
+│   │   └── Tribit Lux V0.1.png
+│   ├── bom/
+│   │   └── bom.csv
+│   ├── firmware/
+│   │   └── tribit_lux_v0_01/
+│   │       └── tribit_lux_v0_01.ino
+│   └── schematic/
+│       └── Tribit Lux V0.1.pdf
 │
 ├── Version_1.0/
-│   ├── Breadboard
-│   └── Visualizers
+│   ├── assets/
+│   │   ├── TriBitLux_V1_0_pin_visualizer_demo_dark.gif
+│   │   ├── TriBitLux_V1_0 2026-10-06 at 23.10.18.mp4
+│   │   └── TriBitLux_V1_0_pin_visualizer.html
+│   └── firmware/
+│       └── TriBitLux_V1_0_visualizer/
+│           └── TriBitLux_V1_0_visualizer.ino
 │
 ├── Version_1.1/
-│   ├── Schematic
-│   ├── PCB
-│   ├── BOM
-│   ├── Gerbers
-│   └── Prototype
+│   ├── assets/
+│   ├── bom/
+│   ├── firmware/
+│   │   └── TriBitLux_V1_1_LIC/
+│   │       └──TriBitLux_V1_1_LIC.ino
+│   ├── gerbers/
+│   ├── pcb/
+│   └── schematic/
 │
 ├── Version_1.2/
-│   ├── Photos
-│   ├── Arduino
-│   └── Video
+│   ├── assets/
+│   └── firmware/
+│       └── TriBitLux_V1_2_LIC/
+│           └── TriBitLux_V1_2_LIC.ino
 │
 ├── Version_1.3/
-│   ├── Photos
-│   ├── LCD
-│   └── Visualization
+│   ├── assets/
+│   └── firmware/
+│       └── TriBitLux_V1_3/
+│           └── TriBitLux_V1_3.ino
 │
-├── Version_2.0/
-│   ├── TriBitLux_V2_0/
-│   │   ├── *.kicad_pro
-│   │   ├── *.kicad_sch
-│   │   └── *.kicad_pcb
-│   │
-│   ├── Output/
-│   ├── Gerber/
-│   └── JLCPCB/
-│
-└── Others/
-    ├── Datasheets
-    ├── Component references
-    └── Additional media
+└── Version_2.0/
+    ├── assets/
+    ├── bom/
+    ├── cpl/
+    ├── gerber/
+    │   └── gerber.zip
+    ├── schematic/
+    └── TriBitLux_V2_0/
+        ├── TriBitLux_V2_0.kicad_pro
+        ├── TriBitLux_V2_0.kicad_sch
+        └── TriBitLux_V2_0.kicad_pcb
 ```
 
 ---
 
 # ⚠️ Notes
 
-Some older KiCad backups and supporting files still contain **`PhotoDiode`** in their filenames.
+Some older KiCad backup files previously contained **`PhotoDiode`** in their filenames.
 
 That naming is legacy.
 
 The actual sensor used throughout TriBit Lux is an **LDR (photoresistor)**.
 
-The HTML and SVG files are supporting visualizations and learning/debugging material. The **editable KiCad schematic and PCB are the authoritative design sources for V2.0**.
+The HTML, GIF, video and other media are supporting visualization, documentation and learning/debugging material.
+
+The **editable KiCad schematic and PCB are the authoritative design sources for V2.0**.
 
 ---
 
@@ -623,27 +678,27 @@ The HTML and SVG files are supporting visualizations and learning/debugging mate
 ### One light. Eight levels. Three bits.
 
 ```text
-       🌑
-        │
-       LDR
-        │
-        ▼
-   COMPARATOR BANK
-        │
-        ▼
-     74F148
-        │
-        ▼
-      3 BITS
-        │
-        ▼
-     74LS48
-        │
-        ▼
-    7-SEGMENT
-        │
-        ▼
-       0–7
+      🌑
+       │
+      LDR
+       │
+       ▼
+ COMPARATOR BANK
+       │
+       ▼
+    74F148
+       │
+       ▼
+     3 BITS
+       │
+       ▼
+    74LS48
+       │
+       ▼
+   7-SEGMENT
+       │
+       ▼
+      0–7
 ```
 
 **V0.0 → V0.1 → V1.0 → V1.1 → V1.2 → V1.3 → V2.0 → 🚧 V2.1**
