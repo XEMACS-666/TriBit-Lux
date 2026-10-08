@@ -134,9 +134,9 @@ The analog part of the system was now starting to resemble the intended hardware
         Voltage Divider
                ↓
         ┌──────────────┐
-        │   LM339 × 2  │
-        │  Comparators │
-        └──────┬───────┘
+        │   LM339 × 2    │
+        │  Comparators   │
+        └─────┬───────-┘
                ↓
         Digital Levels
                ↓
@@ -323,8 +323,6 @@ So a **16×2 I²C LCD** was added.
 
 ![V1.3 prototype 1](Version_1.3/TriBitLux_V1_3%20%281%29.jpg)
 
-![V1.3 prototype 2](Version_1.3/TriBitLux_V1_3%20%282%29.jpg)
-
 This version wasn't intended to replace the hardware logic.
 
 Instead, it became a **development and monitoring stage**.
@@ -404,33 +402,33 @@ The board remains intentionally friendly to manual assembly, inspection and modi
                           │
                           ▼
                     ┌───────────┐
-                    │    LDR    │
+                    │     LDR     │
                     └─────┬─────┘
-                          │
+                           │
                     Sensor Voltage
-                          │
-                          ▼
+                           │
+                           ▼
                ┌────────────────────┐
-               │   LM339 × 2        │
-               │ Comparator Bank    │
+               │       LM339 × 2       │
+               │    Comparator Bank    │
                └─────────┬──────────┘
-                         │
+                          │
                    7 comparator
                      decisions
                          │
                          ▼
                  ┌──────────────┐
-                 │    74F148    │
-                 │   Priority   │
-                 │    Encoder   │
+                 │    74F148      │
+                 │   Priority     │
+                 │    Encoder     │
                  └───────┬──────┘
-                         │
-                      3 bits
+                          │
+                       3 bits
                     ┌────┴────┐
-                    ▼         ▼
+                    ▼          ▼
                Debug/Test   74LS48
-                              │
-                              ▼
+                               │
+                               ▼
                          7-Segment
                            Display
 ```
@@ -643,7 +641,7 @@ The HTML and SVG files are supporting visualizations and learning/debugging mate
     7-SEGMENT
         │
         ▼
-        0–7
+       0–7
 ```
 
 **V0.0 → V0.1 → V1.0 → V1.1 → V1.2 → V1.3 → V2.0 → 🚧 V2.1**
