@@ -134,9 +134,9 @@ The analog part of the system was now starting to resemble the intended hardware
         Voltage Divider
                ↓
         ┌──────────────┐
-        │   LM339 × 2    │
-        │  Comparators   │
-        └─────┬───────-┘
+        │   LM339 × 2  │
+        │  Comparators │
+        └──────┬───────┘
                ↓
         Digital Levels
                ↓
@@ -214,7 +214,7 @@ LM339 Comparator Bank
         Code
           │
           ▼
-      74F148
+       74F148
    Priority Encoder
           │
           ▼
@@ -225,7 +225,7 @@ LM339 Comparator Bank
        Arduino
 ```
 
-![V1.1 Schematic](Version_1.1/TriBitLux_V1_1_Photos/Schematic_TriBit-Lux_V1_1-LIC_2026-10-08.png)
+![V1.1 Schematic](Version_1.1/TriBitLux_V1_1_Photos/TriBit_Lux_V1_1.png)
 
 ![V1.1 Layout](Version_1.1/TriBitLux_V1_1_Photos/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png)
 
@@ -241,7 +241,7 @@ The 74F148 now handled the priority encoding, while the Nano simply observed the
 
 ### Physical prototype
 
-![V1.1 prototype](Version_1.1/TriBitLux_V1_1.jpeg)
+![V1.1 prototype](Version_1.1/TriBitLux_V1_1_Photos/TriBitLux_V1_1.jpeg)
 
 This version marked the transition from:
 
@@ -373,6 +373,8 @@ The circuit was recreated in **KiCad** as an editable schematic and PCB layout.
 
 ![V2.0 schematic](Version_2.0/Output/TriBit_Lux_V2_0_Schematics.png)
 
+![V2.0 PCB_Layout](Version_2.0/Output/TriBitLux_V2_0.png)
+
 ![V2.0 PCB](Version_2.0/Output/TriBitLux_V2_0%20(Top).png)
 
 ### What changed?
@@ -402,35 +404,35 @@ The board remains intentionally friendly to manual assembly, inspection and modi
                           │
                           ▼
                     ┌───────────┐
-                    │     LDR     │
+                    │    LDR    │
                     └─────┬─────┘
-                           │
-                    Sensor Voltage
-                           │
-                           ▼
-               ┌────────────────────┐
-               │       LM339 × 2       │
-               │    Comparator Bank    │
-               └─────────┬──────────┘
                           │
+                    Sensor Voltage
+                          │
+                          ▼
+               ┌────────────────────┐
+               │      LM339 × 2     │
+               │  Comparator Bank   │
+               └─────────┬──────────┘
+                         │
                    7 comparator
                      decisions
                          │
                          ▼
                  ┌──────────────┐
-                 │    74F148      │
-                 │   Priority     │
-                 │    Encoder     │
+                 │    74F148    │
+                 │   Priority   │
+                 │    Encoder   │
                  └───────┬──────┘
-                          │
+                         │
                        3 bits
                     ┌────┴────┐
-                    ▼          ▼
+                    ▼         ▼
                Debug/Test   74LS48
                                │
                                ▼
-                         7-Segment
-                           Display
+                           7-Segment
+                            Display
 ```
 
 The important architectural change is that the **core signal path no longer depends on the Arduino**.
