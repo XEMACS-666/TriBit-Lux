@@ -170,7 +170,7 @@ The LDR and two LM339s were moved onto a physical breadboard, and an **Arduino N
 
 ### ✨ 7-segment pin visualizer
 
-![Animated TriBit Lux 7-segment pin visualizer](Version_1.0/assets/TriBitLux_pin_visualizer_demo_dark.gif)
+[![Animated TriBit Lux 7-segment pin visualizer](Version_1.0/assets/TriBitLux_pin_visualizer_demo_dark.gif)](https://xemacs-666.github.io/TriBit-Lux/Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html)
 
 *An animated guide to the seven-segment display pin layout. The breadboard recording is a video, so use the link below to open it.*
 
@@ -193,7 +193,7 @@ That raised the next engineering question:
 
 ### 🔗 Files
 
-[▶️ Watch the breadboard video](Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4) · [Open the interactive 7-segment pin visualizer](Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [Serial visualizer sketch](Version_1.0/firmware/TriBitLux_V1_0_visualizer/TriBitLux_V1_0_visualizer.ino)
+[▶️ Watch the breadboard video](Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4) · [Open the interactive 7-segment pin visualizer](https://xemacs-666.github.io/TriBit-Lux/Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [Serial visualizer sketch](Version_1.0/firmware/TriBitLux_V1_0_visualizer/TriBitLux_V1_0_visualizer.ino)
 
 > The visualizer sketch is a learning/debugging aid, not the complete V1.0 firmware.
 
@@ -324,7 +324,7 @@ But during development, another question became useful:
 
 So a **16×2 I²C LCD** was added.
 
-![Animated V1.3 light-level demonstration](Version_1.3/assets/TriBitLux_5V_demo_dark.gif)
+[![Animated V1.3 light-level demonstration](Version_1.3/assets/TriBitLux_5V_demo_dark.gif)](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%285V%29.html)
 
 *Animated 5 V demonstration of the TriBit Lux indicator.*
 
@@ -332,7 +332,7 @@ So a **16×2 I²C LCD** was added.
 
 | Prototype view 1 | Prototype view 2 |
 |:---:|:---:|
-| ![V1.3 prototype with LCD, view 1](Version_1.3/assets/TriBitLux_V1_3%20%281%29.jpg) | ![V1.3 prototype with LCD, view 2](Version_1.3/assets/TriBitLux_V1_3%20%282%29.jpg) |
+| ![V1.3 prototype with LCD, view 1](Version_1.3/assets/TriBitLux_V1_3_(1).jpg) | ![V1.3 prototype with LCD, view 2](Version_1.3/assets/TriBitLux_V1_3_(2).jpg) |
 
 This version wasn't intended to replace the hardware logic.
 
@@ -360,7 +360,7 @@ That made the LCD useful for understanding what was happening inside the analog 
 
 ### 🔗 Files
 
-[Photo 1](Version_1.3/assets/TriBitLux_V1_3%20%281%29.jpg) · [Photo 2](Version_1.3/assets/TriBitLux_V1_3%20%282%29.jpg) · [Open the LCD visualization (HTML)](Version_1.3/assets/TriBitLux_V1_3.html) · [LCD sketch](Version_1.3/firmware/TriBitLux_V1_3/TriBitLux_V1_3.ino)
+[Photo 1](Version_1.3/assets/TriBitLux_V1_3%20%281%29.jpg) · [Photo 2](Version_1.3/assets/TriBitLux_V1_3%20%282%29.jpg) · [Open the 5 V LCD visualization](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%285V%29.html) · [LCD sketch](Version_1.3/firmware/TriBitLux_V1_3/TriBitLux_V1_3.ino)
 
 ---
 
