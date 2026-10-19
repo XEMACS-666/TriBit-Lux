@@ -7144,7 +7144,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D10.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Extra Footprints:C_Disc_D5.0mm_W2.5mm_P5.00mm_ClearSilk"
 			(at 113.03 129.2352 0)
 			(effects
 				(font
@@ -7673,7 +7673,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm"
+		(property "Footprint" "Extra Footprints:CP_Radial_D5.0mm_P2.00mm_ClearSilk"
 			(at 129.2352 162.56 0)
 			(effects
 				(font
@@ -9057,7 +9057,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D10.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Extra Footprints:C_Disc_D5.0mm_W2.5mm_P5.00mm_ClearSilk"
 			(at 32.7152 78.74 0)
 			(effects
 				(font
@@ -9278,7 +9278,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D10.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Extra Footprints:C_Disc_D5.0mm_W2.5mm_P5.00mm_ClearSilk"
 			(at 127 134.3152 0)
 			(effects
 				(font
@@ -10630,7 +10630,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Extra Footprints:C_Disc_D5.0mm_W2.5mm_P5.00mm_ClearSilk"
 			(at 110.1852 163.83 0)
 			(effects
 				(font
@@ -10697,7 +10697,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D10.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Extra Footprints:C_Disc_D5.0mm_W2.5mm_P5.00mm_ClearSilk"
 			(at 32.7152 139.7 0)
 			(effects
 				(font

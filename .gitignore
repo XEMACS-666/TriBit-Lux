@@ -2,6 +2,7 @@ Temp/
 Icon
 Icon\r
 Icon?
+AGENTS.md
 
 # MacOS Data
 .DS_Store
@@ -12,3 +13,4 @@ Icon?
 **/*.kicad_prl
 **/*.kicad_sch-bak
 **/*.kicad_sch.lck
+**/*.kicad_pcb.lck
