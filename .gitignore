@@ -14,3 +14,18 @@ AGENTS.md
 **/*.kicad_sch-bak
 **/*.kicad_sch.lck
 **/*.kicad_pcb.lck
+
+# Local working outputs and historical V2.1 development snapshots
+/output/
+/Version_2.1/review/*
+#!/Version_2.1/review/README.md
+#!/Version_2.1/review/DRC-2026-10-30.json
+#!/Version_2.1/review/ERC-2026-10-30.json
+#!/Version_2.1/review/Alignment-2026-10-30.json
+# Regenerate manufacturing files from the final saved board before including them.
+# Retained older schematic export; editable source and current netlist are included.
+
+/Version_2.1/cpl/*.json
+/Version_2.1/bom/*.md
+/Version_2.1/Readme.md 
+# Temporary file for development; final version is in the root directory.

@@ -10,15 +10,15 @@
 </p>
 
 <p align="center">
-  <a href="#v20"><img src="Version_2.0/assets/TriBitLux_V2_0_Top.png" width="1000" alt="TriBit Lux V2.0 bare-board render with voltage ladder labels, dedicated logic ICs and XEMACS attribution"></a>
-  <br><sub>V2.0 · The full through-hole design · 5 V input / 3.3 V reference · Not yet fabricated</sub>
+  <a href="#v21"><img src="Version_2.1/assets/TriBitLux_V2_1_Top.png" width="1000" alt="TriBit Lux V2.1 hybrid board render exported by XEMACS"></a>
+  <br><sub>V2.1 · Compact hybrid design · 5 V input / 2.5 V reference · Not yet fabricated</sub>
 </p>
 
 <p align="center">
   <a href="#explore">Interactive explorer</a> &nbsp; / &nbsp;
   <a href="#journey">The journey</a> &nbsp; / &nbsp;
   <a href="#signal-path">Inside the circuit</a> &nbsp; / &nbsp;
-  <a href="#v20">V2.0 design gallery</a> &nbsp; / &nbsp;
+  <a href="#v21">V2.1 design gallery</a> &nbsp; / &nbsp;
   <a href="#design-files">Design files</a> &nbsp; / &nbsp;
   <a href="#roadmap">What's next</a>
 </p>
@@ -27,7 +27,7 @@
 
 This repository follows that progression through the material saved along the way: simulations, sketches, lab photographs, schematics, interactive demonstrations and PCB exports. The breadboard wiring is part of the story—getting it into a compact board was a project in itself.
 
-> **Where the project stands:** V2.0 remains an unfabricated THT design. V2.1 is the planned hybrid THT + SMT upgrade, with threshold lights and enclosure mounting. V2.2 will document the fabricated and assembled result.
+> **Where the project stands:** [V2.1](Version_2.1/README.md) is now an 80 × 41 mm hybrid THT + SMT design with seven cumulative LEDs, a 2.5 V reference, four mounting holes and a back-side repository QR. The 30 October check reports no PCB errors, unconnected items or schematic-parity issues; 57 existing warnings remain. V2.0 stays as the unfabricated THT milestone, and V2.2 will document the fabricated result.
 
 ---
 
@@ -58,7 +58,7 @@ The preview above is animated; the linked page is interactive. The explorer uses
 | **Move into hardware** | [V1.1](#v11) → [V1.2](#v12) | The priority encoder and then the display decoder become dedicated ICs. |
 | **Observe** | [V1.3](#v13) | An LCD adds a window into the sensor voltage. |
 | **Design the board** | [V2.0](#v20) | The breadboard connections become a through-hole KiCad design. |
-| **Refine and fabricate** | [V2.1 → V2.2](#roadmap) | Planned hybrid layout, threshold lights, acrylic enclosure and physical board. |
+| **Refine and fabricate** | [V2.1 → V2.2](#roadmap) | A compact hybrid layout and threshold lights; acrylic enclosure and physical board to follow. |
 
 ---
 
@@ -273,7 +273,7 @@ The current revision includes revised capacitor footprints, a 15.5 mm lead pitch
 
 ### Schematic · current source export
 
-[![V2.0 schematic exported from the current KiCad source](Version_2.0/assets/TriBitLux_V2_0.svg)](Version_2.0/schematic/TriBit_Lux_V2_0_Schematics.pdf)
+[![V2.0 schematic exported from the current KiCad source](Version_2.0/assets/TriBit_Lux_V2_0_Schematics.png)](Version_2.0/schematic/TriBit_Lux_V2_0_Schematics.pdf)
 
 *Click for the PDF, or open the [scalable SVG](Version_2.0/assets/TriBitLux_V2_0.svg). The [older PNG export](Version_2.0/assets/TriBit_Lux_V2_0_Schematics.png) is retained as an earlier snapshot.*
 
@@ -330,15 +330,47 @@ Open `TriBitLux_V2_0.kicad_pro` in KiCad to work with the schematic and PCB toge
 
 ---
 
+<a id="v21"></a>
+
+## ✨ V2.1 · Smaller board, clearer feedback
+
+**80 × 41 mm · Hybrid THT + SMT · Seven cumulative LEDs · 2.5 V reference**
+
+[![V2.1 populated CAD render by XEMACS](Version_2.1/assets/TriBitLux_V2_1_Top.png)](Version_2.1/README.md)
+
+The light-sensing circuit now fits on a compact rectangle with a regular resistor/LED column, two comparator banks, dedicated encoder and decoder ICs, and a buffer for the threshold LEDs. Four mounting holes form a symmetric 73 × 31 mm pattern. The underside carries a threshold guide and a repository QR code.
+
+| Front · Read the layout | Back · Follow the levels |
+|:---:|:---:|
+| [![V2.1 front without component bodies](Version_2.1/assets/TriBitLux_V2_1_Top%28Non-Populated%29.png)](Version_2.1/assets/TriBitLux_V2_1_Layout.png) | [![V2.1 underside with QR and threshold voltages](Version_2.1/assets/TriBitLux_V2_1_Bottom.png)](Version_2.1/assets/TriBitLux_V2_1_Bottom.png) |
+
+JLCPCB is planned to assemble **40 SMT parts per board**; XEMACS will solder the **17 through-hole parts**. The three-pin header provides 5 V input, ground and the analog sensor voltage for measurement. The nominal thresholds are spaced by 0.3125 V; the displayed level is not calibrated lux.
+
+These are XEMACS’s existing CAD exports. They precede the 30 October silkscreen alignment; updated high-resolution renders will be supplied by XEMACS.
+
+### Schematic · V2.1 hybrid circuit
+
+[![V2.1 schematic showing the 2.5 V sensor and reference ladder, LM339 comparators, hardware display path and seven cumulative LEDs](Version_2.1/assets/Schematic.png)](Version_2.1/schematic/TriBitLux_V2_1.svg)
+
+*Click the schematic to view XEMACS’s full-resolution export.*
+
+The schematic brings together the regulated **2.5 V sensor/reference rail**, the **LM339 → 74LS148 → 74LS48** display path, and the **74HCT244-driven threshold LEDs**. J1 provides 5 V input, ground and the analog sensor-voltage output.
+
+[Editable KiCad schematic](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch) · [Current netlist](Version_2.1/schematic/TriBitLux_V2_1.net) · [Full-resolution schematic image](Version_2.1/assets/Schematic.png)
+
+**Design checkpoint · 30 October 2026:** PCB DRC reports zero errors, zero unconnected items and zero schematic-parity issues, with 57 existing warnings. Schematic ERC reports zero violations. The board remains unfabricated, and the next manufacturing export needs a fresh supplier DFM check. The older explorer’s V2.1 concept predates this 2.5 V implementation.
+
+[Full V2.1 gallery and files](Version_2.1/README.md) · [KiCad project](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pro) · [Schematic](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch) · [SMT BOM](Version_2.1/bom/TriBitLux_V2_1_JLCPCB_SMT.csv) · [SMT placement](Version_2.1/cpl/TriBitLux_V2_1_JLCPCB_SMT_CPL.csv) · [Layout review](Version_2.1/review/README.md)
+
 <a id="roadmap"></a>
 
 ## 🚧 What's next
 
 | **V2.0 · Preserve** | **V2.1 · Refine** | **V2.2 · Build** |
 |---|---|---|
-| Keep the full THT design as an unfabricated milestone. | Develop the hybrid THT + SMT revision. | Fabricate and assemble the completed design. |
-| Retain its schematic, layout and development record. | Add threshold indicator lights, visual refinements and mounting holes. | Record power-up measurements, light response and the finished assembly. |
-| **Current design archive** | Plan dimensions and standoffs for a custom acrylic case. | Fit the enclosure and document the physical result. |
+| Keep the full THT design as an unfabricated milestone. | Review the compact 80 × 41 mm hybrid design and refresh its manufacturing exports. | Fabricate and assemble the completed design. |
+| Retain its schematic, layout and development record. | Refine threshold lights, silkscreen and assembly details. | Record power-up measurements, light response and the finished assembly. |
+| **Current design archive** | Design the acrylic enclosure around the four mounting holes and confirm the on-board QR scans reliably. | Fit the enclosure and document the physical result. |
 
 The planned lights should make each level transition easier to see. The acrylic enclosure should make the circuit easier to display while providing secure mounting. Support components such as decoupling and protection remain electrically important whether their packages are THT or SMT.
 
@@ -348,22 +380,23 @@ The planned lights should make each level transition easier to see. The acrylic 
 
 ```text
 TriBit-Lux/
-├── README.md                    The illustrated project walkthrough
-├── docs/media/                  Lightweight photo previews and video poster
+├── README.md                    Illustrated project walkthrough
+├── docs/media/                  Photo previews and video poster
 ├── Version_0.0/                 Potentiometer simulation
 ├── Version_0.1/                 LDR simulation
-├── Version_1.0/                 First breadboard, video and pin visualizer
-├── Version_1.1/                 Encoder build and EasyEDA design archive
-├── Version_1.2/                 Hardware decoder build and serial sketch
-├── Version_1.3/                 LCD build and interactive demonstrations
-└── Version_2.0/
-    ├── TriBitLux_V2_0/          Editable KiCad project, schematic and PCB
-    ├── schematic/              PDF and netlist
-    ├── assets/                 Renders, explorer and animated preview
-    ├── bom/                    Parts lists
-    ├── cpl/                    Placement exports
-    ├── review/                 Check results and remaining release work
-    └── Gerber/                 Existing manufacturing snapshot
+├── Version_1.0/                 First breadboard and pin visualizer
+├── Version_1.1/                 Encoder build and EasyEDA archive
+├── Version_1.2/                 Hardware decoder and serial sketch
+├── Version_1.3/                 LCD build and demonstrations
+├── Version_2.0/                 Unfabricated through-hole milestone
+└── Version_2.1/
+    ├── README.md                Hybrid board gallery, pinout and status
+    ├── TriBitLux_V2_1/          Editable KiCad project, schematic and PCB
+    ├── assets/                 XEMACS’s board renders and schematic image
+    ├── schematic/              Current netlist
+    ├── bom/                    Full and SMT-only parts lists
+    ├── cpl/                    Native and JLCPCB placement exports
+    └── review/                 Current checks and layout feedback
 ```
 
 Each version folder contains the records that survived that stage. Older versions may not contain a complete build package. The photographs, videos and interactive pages show the development process; the editable design files describe the circuit. KiCad temporary files and backups are excluded through `.gitignore`.

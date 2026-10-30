@@ -1,0 +1,9 @@
+Comment,Designator,Footprint,LCSC Part #
+74HCT244,U7,Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm,C32710667
+2.2u,"C5,C6",Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,C377773
+RED,"D1,D2,D3,D4,D5,D6,D7",LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder,C84256
+1.5k,"R28,R29,R30,R31,R32,R33,R34",Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,C4310
+2.2k,"R17,R18,R19,R20,R21,R22,R23,R24",Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,C17520
+0.1u,"C1,C2,C3,C4,C7",Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,C49678
+220,"R10,R11,R12,R13,R14,R15,R16",Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,C17557
+10k,"R25,R26,R27",Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,C17414
