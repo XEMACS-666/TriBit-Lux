@@ -15,213 +15,71 @@
 </p>
 
 <p align="center">
+  <a href="#v21">Latest design · V2.1</a> &nbsp; / &nbsp;
+  <a href="Version_2.1/README.md">V2.1 design files</a> &nbsp; / &nbsp;
+  <a href="#journey">Version history</a> &nbsp; / &nbsp;
   <a href="#explore">Interactive explorer</a> &nbsp; / &nbsp;
-  <a href="#journey">The journey</a> &nbsp; / &nbsp;
-  <a href="#signal-path">Inside the circuit</a> &nbsp; / &nbsp;
-  <a href="#v21">V2.1 design gallery</a> &nbsp; / &nbsp;
-  <a href="#design-files">Design files</a> &nbsp; / &nbsp;
   <a href="#roadmap">What's next</a>
 </p>
 
 **TriBit Lux** converts an LDR's output voltage into one of eight brightness levels and shows the result on a seven-segment display. It began in TinkerCAD, moved onto breadboards, and gradually transferred the encoding and display work from an Arduino to dedicated logic ICs.
 
-This repository follows that progression through the material saved along the way: simulations, sketches, lab photographs, schematics, interactive demonstrations and PCB exports. The breadboard wiring is part of the story—getting it into a compact board was a project in itself.
+This repository presents the latest design first, followed by its earlier versions through the material saved along the way: simulations, sketches, lab photographs, schematics, interactive demonstrations and PCB exports. The breadboard wiring is part of the story—getting it into a compact board was a project in itself.
 
 > **Where the project stands:** [V2.1](Version_2.1/README.md) is now an 80 × 41 mm hybrid THT + SMT design with seven cumulative LEDs, a 2.5 V reference, four mounting holes and a back-side repository QR. The 30 October check reports no PCB errors, unconnected items or schematic-parity issues; 57 existing warnings remain. V2.0 stays as the unfabricated THT milestone, and V2.2 will document the fabricated result.
 
 ---
 
-<a id="explore"></a>
-
-## 🎛️ Explore the project
-
-<p align="center">
-  <a href="https://xemacs-666.github.io/TriBit-Lux/Version_2.0/assets/tribit-lux-explorer.html"><img src="Version_2.0/assets/tribit-lux-preview.gif" width="820" alt="Animated project explorer showing the version timeline, comparator states and brightness levels 0 through 7"></a>
-</p>
-
-<p align="center"><strong><a href="https://xemacs-666.github.io/TriBit-Lux/Version_2.0/assets/tribit-lux-explorer.html">Open the interactive TriBit Lux explorer →</a></strong></p>
-
-| Follow the evolution | Trace a signal | Preview the next revision |
-|---|---|---|
-| Select a version and watch the role of the Arduino change. | Move the voltage slider and follow the comparator outputs, three encoder bits and displayed digit. | Switch to the V2.1 concept to see cumulative threshold lights. |
-
-The preview above is animated; the linked page is interactive. The explorer uses the updated V2.0 reference mapping, including the level-0 band. It models ideal logic, with real-world tolerances, noise and timing left out. [Open the standalone HTML file](Version_2.0/assets/tribit-lux-explorer.html).
-
 <a id="journey"></a>
 
-## 🧭 From simulation to copper
+## 🧭 Version history · newest first
 
-| Chapter | Version | What changed |
+| Version | Milestone | What changed |
 |---|---|---|
-| **Simulate** | [V0.0](#v00) → [V0.1](#v01) | A potentiometer becomes an LDR; the comparator front end takes shape. |
-| **Build** | [V1.0](#v10) | The circuit moves onto a breadboard with an Arduino Nano. |
-| **Move into hardware** | [V1.1](#v11) → [V1.2](#v12) | The priority encoder and then the display decoder become dedicated ICs. |
-| **Observe** | [V1.3](#v13) | An LCD adds a window into the sensor voltage. |
-| **Design the board** | [V2.0](#v20) | The breadboard connections become a through-hole KiCad design. |
-| **Refine and fabricate** | [V2.1 → V2.2](#roadmap) | A compact hybrid layout and threshold lights; acrylic enclosure and physical board to follow. |
+| [**V2.1**](#v21) | **Current hybrid design** | Compact THT + SMT board, cumulative LEDs, 2.5 V reference and mounting holes. |
+| [V2.0](#v20) | Through-hole PCB | The breadboard connections become an unfabricated KiCad design. |
+| [V1.3](#v13) | LCD monitoring | An LCD adds a view of the sensor voltage. |
+| [V1.2](#v12) | Hardware display decoding | The 74LS48 drives the display; the Nano monitors the encoder bits. |
+| [V1.1](#v11) | Hardware priority encoding | The 74F148 takes over encoding; the Nano still drives the display. |
+| [V1.0](#v10) | First breadboard | The LDR and comparator front end move into a physical build. |
+| [V0.1](#v01) | LDR simulation | Light becomes the input to the simulated comparator circuit. |
+| [V0.0](#v00) | Potentiometer simulation | The original voltage-to-level experiment. |
+
+V2.2 is the planned fabricated result; see [what’s next](#roadmap).
 
 ---
 
-<a id="v00"></a>
+<a id="v21"></a>
 
-## 🧪 V0.0 · Starting with a knob
+## ✨ V2.1 · Smaller board, clearer feedback
 
-**TinkerCAD simulation · Potentiometer input · Arduino Uno**
+**80 × 41 mm · Hybrid THT + SMT · Seven cumulative LEDs · 2.5 V reference**
 
-The first version used a potentiometer to stand in for the sensor voltage. Turning the knob changed the input to the comparator bank, while the Uno performed priority encoding and drove the seven-segment display. This established the basic voltage-to-level idea before adding a light-sensitive input.
+[![V2.1 populated CAD render by XEMACS](Version_2.1/assets/TriBitLux_V2_1_Top.png)](Version_2.1/README.md)
 
-[![V0.0 TinkerCAD simulation with potentiometer input, comparator circuitry and Arduino Uno](Version_0.0/assets/Tribit%20Lux%20V0.0.png)](https://www.tinkercad.com/things/60Tk7pVbgVW-tribit-lux-v00?sharecode=bsW5T545n6U2o7TxL7Ta_quI-Dl-KoERqczIX1Q8Fq4)
+The light-sensing circuit now fits on a compact rectangle with a regular resistor/LED column, two comparator banks, dedicated encoder and decoder ICs, and a buffer for the threshold LEDs. Four mounting holes form a symmetric 73 × 31 mm pattern. The underside carries a threshold guide and a repository QR code.
 
-*The starting point. Click the circuit image to open its TinkerCAD simulation.*
-
-**Open this version:** [Simulation](https://www.tinkercad.com/things/60Tk7pVbgVW-tribit-lux-v00?sharecode=bsW5T545n6U2o7TxL7Ta_quI-Dl-KoERqczIX1Q8Fq4) · [Schematic PDF](Version_0.0/schematic/Tribit%20Lux%20V0.0.pdf) · [Arduino sketch](Version_0.0/firmware/tribit_lux_v0_00/tribit_lux_v0_00.ino) · [BOM](Version_0.0/bom/bom.csv)
-
-<a id="v01"></a>
-
-## 🌤️ V0.1 · Let there be light
-
-**TinkerCAD simulation · LDR input · LM339 comparators**
-
-The potentiometer input was replaced with an LDR, and the comparator section moved to LM339 devices. Now the input responded to light. The Uno still supplied both digital stages: deciding the encoded value and converting it into segment signals.
-
-[![V0.1 TinkerCAD simulation with an LDR and LM339 comparator stage](Version_0.1/assets/Tribit%20Lux%20V0.1.png)](https://www.tinkercad.com/things/gNVAR2cQYVG-tribit-lux-v01?sharecode=9jLX_zzwRAG0_mHYH1R4YNfyqPdioSTKhPsh0a257ho)
-
-*The sensor enters the picture. The display logic is still handled by the Uno.*
-
-**Open this version:** [Simulation](https://www.tinkercad.com/things/gNVAR2cQYVG-tribit-lux-v01?sharecode=9jLX_zzwRAG0_mHYH1R4YNfyqPdioSTKhPsh0a257ho) · [Schematic PDF](Version_0.1/schematic/Tribit%20Lux%20V0.1.pdf) · [Arduino sketch](Version_0.1/firmware/tribit_lux_v0_01/tribit_lux_v0_01.ino) · [BOM](Version_0.1/bom/bom.csv)
-
----
-
-<a id="v10"></a>
-
-## 🔌 V1.0 · The first breadboard
-
-**Physical prototype · Two LM339s · Arduino Nano**
-
-The LDR and comparator bank moved out of the simulator and onto a breadboard. The Nano read the comparator outputs and drove the seven-segment display. The saved recording captures the early physical build, with the jumper wiring fully on show.
-
-<p align="center">
-  <a href="Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4"><img src="docs/media/v1-0-breadboard-video.jpg" width="760" alt="Frame from the V1.0 breadboard recording, showing the Nano, comparator wiring and illuminated seven-segment display"></a>
-  <br><strong><a href="Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4">▶ Watch the breadboard recording · 24 seconds</a></strong>
-</p>
-
-### A closer look at the display pins
-
-[![Animated guide to the seven-segment display pin connections](Version_1.0/assets/TriBitLux_pin_visualizer_demo_dark.gif)](https://xemacs-666.github.io/TriBit-Lux/Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html)
-
-*Click the animation to explore the display pin layout.*
-
-**Open this version:** [Recording](Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4) · [Interactive pin guide](https://xemacs-666.github.io/TriBit-Lux/Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [HTML source](Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [Visualizer sketch](Version_1.0/firmware/TriBitLux_V1_0_visualizer/TriBitLux_V1_0_visualizer.ino)
-
-The saved visualizer sketch is a debugging aid; it is not the complete original V1.0 display firmware.
-
-<a id="v11"></a>
-
-## 🧠 V1.1 · Giving the encoder its own IC
-
-**Physical prototype · 74F148 priority encoder · EasyEDA design exports**
-
-The 74F148 took over priority encoding from the Nano. The comparator bank now fed a dedicated logic IC, which produced the three output bits. The Nano continued to decode those bits and drive the display. This version also has an EasyEDA schematic and PCB design archive.
-
-### At the workbench
-
-| Schematic beside the build | Full demonstration setup |
+| Front · Read the layout | Back · Follow the levels |
 |:---:|:---:|
-| [![V1.1 schematic on screen beside the breadboard](docs/media/v1-1-3132.png)](Version_1.1/assets/TriBitLux_V1_1_3132.JPG) | [![V1.1 breadboard displaying 2 beside a reference table](docs/media/v1-1-3134.png)](Version_1.1/assets/TriBitLux_V1_1_3134.JPG) |
-| **Schematic and wiring together** | **Display and reference table** |
+| [![V2.1 front without component bodies](Version_2.1/assets/TriBitLux_V2_1_Top%28Non-Populated%29.png)](Version_2.1/assets/TriBitLux_V2_1_Layout.png) | [![V2.1 underside with QR and threshold voltages](Version_2.1/assets/TriBitLux_V2_1_Bottom.png)](Version_2.1/assets/TriBitLux_V2_1_Bottom.png) |
 
-| Watching the output | Another angle of the setup |
-|:---:|:---:|
-| [![V1.1 breadboard with reference information and a serial log visible on a phone](docs/media/v1-1-3135.png)](Version_1.1/assets/TriBitLux_V1_1_3135.JPG) | [![Angled view of the V1.1 breadboard, schematic and serial log](docs/media/v1-1-3136.png)](Version_1.1/assets/TriBitLux_V1_1_3136.JPG) |
-| **Hardware output alongside monitoring** | **The complete workbench arrangement** |
+JLCPCB is planned to assemble **40 SMT parts per board**; XEMACS will solder the **17 through-hole parts**. The three-pin header provides 5 V input, ground and the analog sensor voltage for measurement. The nominal thresholds are spaced by 0.3125 V; the displayed level is not calibrated lux.
 
+These are XEMACS’s existing CAD exports. They precede the 30 October silkscreen alignment; updated high-resolution renders will be supplied by XEMACS.
 
-### From connections to a board design
+### Schematic · V2.1 hybrid circuit
 
-| Schematic | Routed PCB layout |
-|:---:|:---:|
-| [![V1.1 EasyEDA schematic](Version_1.1/assets/TriBit_Lux_V1_1.png)](Version_1.1/schematic/Schematic_TriBitLux_V1_1-LIC_2026-10-06.pdf) | [![V1.1 annotated EasyEDA PCB layout](Version_1.1/assets/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png)](Version_1.1/assets/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png) |
+[![V2.1 schematic showing the 2.5 V sensor and reference ladder, LM339 comparators, hardware display path and seven cumulative LEDs](Version_2.1/assets/Schematic.png)](Version_2.1/schematic/TriBitLux_V2_1.svg)
 
-<p align="center">
-  <a href="Version_1.1/pcb/TriBitLux_V1_1.jpeg"><img src="Version_1.1/pcb/TriBitLux_V1_1.jpeg" width="820" alt="V1.1 EasyEDA blue PCB design render with an Arduino Nano fitted"></a>
-  <br><sub>EasyEDA design render with the Nano fitted. This image documents the board design.</sub>
-</p>
+*Click the schematic to view XEMACS’s full-resolution export.*
 
-| Top board view · SVG | Bottom board view · SVG |
-|:---:|:---:|
-| [![V1.1 top board-view export](Version_1.1/assets/TriBitLux_V1_1_Top.png)](Version_1.1/pcb/TriBitLux_V1_1_Top.svg) | [![V1.1 bottom board-view export](Version_1.1/assets/TriBitLux_V1_1_Bottom.png)](Version_1.1/pcb/TriBitLux_V1_1_Bottom.svg) |
+The schematic brings together the regulated **2.5 V sensor/reference rail**, the **LM339 → 74LS148 → 74LS48** display path, and the **74HCT244-driven threshold LEDs**. J1 provides 5 V input, ground and the analog sensor-voltage output.
 
-**Open this version:** [Schematic PDF](Version_1.1/schematic/Schematic_TriBitLux_V1_1-LIC_2026-10-06.pdf) · [PCB PDF](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06.pdf) · [Arduino sketch](Version_1.1/firmware/TriBitLux_V1_1_LIC/TriBitLux_V1_1_LIC.ino) · [BOM](Version_1.1/bom/BOM_TriBitLux_V1_1-LIC_2026-10-06.csv) · [Gerber archive](Version_1.1/gerbers/Gerber_TriBitLux_V1_1-LIC_PCB_TriBitLux_V1_1-LIC_2_2026-10-06.zip)
+[Editable KiCad schematic](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch) · [Current netlist](Version_2.1/schematic/TriBitLux_V2_1.net) · [Full-resolution schematic image](Version_2.1/assets/Schematic.png)
 
-<details>
-<summary><strong>Browse the individual EasyEDA layer PDFs</strong></summary>
+**Design checkpoint · 30 October 2026:** PCB DRC reports zero errors, zero unconnected items and zero schematic-parity issues, with 57 existing warnings. Schematic ERC reports zero violations. The board remains unfabricated, and the next manufacturing export needs a fresh supplier DFM check. The older explorer’s V2.1 concept predates this 2.5 V implementation.
 
-| Export | Top | Bottom |
-|---|---|---|
-| Copper | [Top layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopLayer.pdf) | [Bottom layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomLayer.pdf) |
-| Silkscreen | [Top silk](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopSilkLayer.pdf) | [Bottom silk](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomSilkLayer.pdf) |
-| Solder mask | [Top mask](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopSolderMaskLayer.pdf) | [Bottom mask](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomSolderMaskLayer.pdf) |
-| Paste mask | [Top paste](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopPasteMaskLayer.pdf) | [Bottom paste](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomPasteMaskLayer.pdf) |
-
-[Board outline](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BoardOutLine.pdf) · [Holes](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/Hole.pdf) · [Multi-layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/Multi-Layer.pdf) · [Document layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/Document.pdf)
-
-</details>
-
----
-
-<a id="v12"></a>
-
-## 🔢 V1.2 · Hardware takes over the display
-
-**Physical prototype · 74LS48 decoder · Serial monitoring**
-
-Adding the 74LS48 completed the dedicated hardware display path: comparator bank → encoder → decoder → seven-segment display. The Nano supplied 5 V and received the three encoder bits so the serial console could show them for assurance.
-
-### The wiring, up close
-
-| Overhead wiring view | Sensor and jumper connections |
-|:---:|:---:|
-| [![V1.2 overhead wiring view with the seven-segment display unlit](docs/media/v1-2-135115.jpg)](Version_1.2/assets/TriBitLux_V1_2_135115.jpg) | [![V1.2 close view showing the LDR at the front of the breadboard](docs/media/v1-2-135217.jpg)](Version_1.2/assets/TriBitLux_V1_2_135217.jpg) |
-
-<p align="center">
-  <a href="Version_1.2/assets/TriBitLux_V1_2_140313.jpg"><img src="docs/media/v1-2-140313.jpg" width="760" alt="Powered V1.2 breadboard with the seven-segment display illuminated"></a>
-  <br><sub>The powered build. The photographed display is driven by the 74LS48.</sub>
-</p>
-
-| Additional powered view | A second captured state |
-|:---:|:---:|
-| [![V1.2 powered breadboard, JPEG preview of original HEIC photograph 0733](docs/media/v1-2-0733.jpg)](Version_1.2/assets/TriBitLux_V1_2_0733.heic) | [![V1.2 powered breadboard, JPEG preview of original HEIC photograph 0734](docs/media/v1-2-0734.jpg)](Version_1.2/assets/TriBitLux_V1_2_0734.heic) |
-
-*The last two previews link to the original HEIC photographs. Large photographs throughout this page use smaller preview copies; click them for the originals.*
-
-**Open this version:** [Serial-monitor sketch](Version_1.2/firmware/TriBitLux_V1_2_LIC/TriBitLux_V1_2_LIC.ino) · [Original photo collection](Version_1.2/assets/)
-
-The saved sketch includes experimental segment-driving code. In the photographed build, the **74LS48 drives the display**, while the Nano observes the encoder output.
-
-<a id="v13"></a>
-
-## 📟 V1.3 · A window into the sensor voltage
-
-**Physical prototype · 16×2 I²C LCD · Parallel monitoring**
-
-The Nano gained another role: driving an LCD to make the working flow easier to follow. The hardware seven-segment path remained in place, while the Nano supplied power and sampled the LDR voltage through its own ADC.
-
-| LCD-equipped breadboard | Another view of the build |
-|:---:|:---:|
-| [![V1.3 breadboard with its illuminated 16 by 2 LCD and seven-segment display](Version_1.3/assets/TriBitLux_V1_3_%281%29.jpg)](Version_1.3/assets/TriBitLux_V1_3_%281%29.jpg) | [![Second view of the V1.3 LCD-equipped breadboard](Version_1.3/assets/TriBitLux_V1_3_%282%29.jpg)](Version_1.3/assets/TriBitLux_V1_3_%282%29.jpg) |
-
-### Explore the LCD demonstration
-
-[![Animated V1.3 five-volt LCD demonstration](Version_1.3/assets/TriBitLux_5V_demo_dark.gif)](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%285V%29.html)
-
-| 5 V demonstration | 3.3 V demonstration |
-|:---:|:---:|
-| [**Open interactive 5 V view →**](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%285V%29.html) | [**Open interactive 3.3 V view →**](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%283.3V%29.html) |
-| [HTML source](Version_1.3/assets/TriBitLux_V1_3_%285V%29.html) | [HTML source](Version_1.3/assets/TriBitLux_V1_3_%283.3V%29.html) |
-
-The LCD firmware calculates its own level from the analog voltage; it **does not read the encoder bits**. That makes the LCD useful for observing the input, while the hardware display follows the comparator and encoder chain. These saved demonstrations belong to the V1.3 archive; the main explorer shows the updated V2.0 logic model.
-
-**Open this version:** [LCD sketch](Version_1.3/firmware/TriBitLux_V1_3/TriBitLux_V1_3.ino) · [Original assets](Version_1.3/assets/)
+[Full V2.1 gallery and files](Version_2.1/README.md) · [KiCad project](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pro) · [Schematic](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch) · [SMT BOM](Version_2.1/bom/TriBitLux_V2_1_JLCPCB_SMT.csv) · [SMT placement](Version_2.1/cpl/TriBitLux_V2_1_JLCPCB_SMT_CPL.csv) · [Layout review](Version_2.1/review/README.md)
 
 ---
 
@@ -330,37 +188,192 @@ Open `TriBitLux_V2_0.kicad_pro` in KiCad to work with the schematic and PCB toge
 
 ---
 
-<a id="v21"></a>
+<a id="v13"></a>
 
-## ✨ V2.1 · Smaller board, clearer feedback
+## 📟 V1.3 · A window into the sensor voltage
 
-**80 × 41 mm · Hybrid THT + SMT · Seven cumulative LEDs · 2.5 V reference**
+**Physical prototype · 16×2 I²C LCD · Parallel monitoring**
 
-[![V2.1 populated CAD render by XEMACS](Version_2.1/assets/TriBitLux_V2_1_Top.png)](Version_2.1/README.md)
+The Nano gained another role: driving an LCD to make the working flow easier to follow. The hardware seven-segment path remained in place, while the Nano supplied power and sampled the LDR voltage through its own ADC.
 
-The light-sensing circuit now fits on a compact rectangle with a regular resistor/LED column, two comparator banks, dedicated encoder and decoder ICs, and a buffer for the threshold LEDs. Four mounting holes form a symmetric 73 × 31 mm pattern. The underside carries a threshold guide and a repository QR code.
-
-| Front · Read the layout | Back · Follow the levels |
+| LCD-equipped breadboard | Another view of the build |
 |:---:|:---:|
-| [![V2.1 front without component bodies](Version_2.1/assets/TriBitLux_V2_1_Top%28Non-Populated%29.png)](Version_2.1/assets/TriBitLux_V2_1_Layout.png) | [![V2.1 underside with QR and threshold voltages](Version_2.1/assets/TriBitLux_V2_1_Bottom.png)](Version_2.1/assets/TriBitLux_V2_1_Bottom.png) |
+| [![V1.3 breadboard with its illuminated 16 by 2 LCD and seven-segment display](Version_1.3/assets/TriBitLux_V1_3_%281%29.jpg)](Version_1.3/assets/TriBitLux_V1_3_%281%29.jpg) | [![Second view of the V1.3 LCD-equipped breadboard](Version_1.3/assets/TriBitLux_V1_3_%282%29.jpg)](Version_1.3/assets/TriBitLux_V1_3_%282%29.jpg) |
 
-JLCPCB is planned to assemble **40 SMT parts per board**; XEMACS will solder the **17 through-hole parts**. The three-pin header provides 5 V input, ground and the analog sensor voltage for measurement. The nominal thresholds are spaced by 0.3125 V; the displayed level is not calibrated lux.
+### Explore the LCD demonstration
 
-These are XEMACS’s existing CAD exports. They precede the 30 October silkscreen alignment; updated high-resolution renders will be supplied by XEMACS.
+[![Animated V1.3 five-volt LCD demonstration](Version_1.3/assets/TriBitLux_5V_demo_dark.gif)](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%285V%29.html)
 
-### Schematic · V2.1 hybrid circuit
+| 5 V demonstration | 3.3 V demonstration |
+|:---:|:---:|
+| [**Open interactive 5 V view →**](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%285V%29.html) | [**Open interactive 3.3 V view →**](https://xemacs-666.github.io/TriBit-Lux/Version_1.3/assets/TriBitLux_V1_3_%283.3V%29.html) |
+| [HTML source](Version_1.3/assets/TriBitLux_V1_3_%285V%29.html) | [HTML source](Version_1.3/assets/TriBitLux_V1_3_%283.3V%29.html) |
 
-[![V2.1 schematic showing the 2.5 V sensor and reference ladder, LM339 comparators, hardware display path and seven cumulative LEDs](Version_2.1/assets/Schematic.png)](Version_2.1/schematic/TriBitLux_V2_1.svg)
+The LCD firmware calculates its own level from the analog voltage; it **does not read the encoder bits**. That makes the LCD useful for observing the input, while the hardware display follows the comparator and encoder chain. These saved demonstrations belong to the V1.3 archive; the main explorer shows the updated V2.0 logic model.
 
-*Click the schematic to view XEMACS’s full-resolution export.*
+**Open this version:** [LCD sketch](Version_1.3/firmware/TriBitLux_V1_3/TriBitLux_V1_3.ino) · [Original assets](Version_1.3/assets/)
 
-The schematic brings together the regulated **2.5 V sensor/reference rail**, the **LM339 → 74LS148 → 74LS48** display path, and the **74HCT244-driven threshold LEDs**. J1 provides 5 V input, ground and the analog sensor-voltage output.
+---
 
-[Editable KiCad schematic](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch) · [Current netlist](Version_2.1/schematic/TriBitLux_V2_1.net) · [Full-resolution schematic image](Version_2.1/assets/Schematic.png)
+<a id="v12"></a>
 
-**Design checkpoint · 30 October 2026:** PCB DRC reports zero errors, zero unconnected items and zero schematic-parity issues, with 57 existing warnings. Schematic ERC reports zero violations. The board remains unfabricated, and the next manufacturing export needs a fresh supplier DFM check. The older explorer’s V2.1 concept predates this 2.5 V implementation.
+## 🔢 V1.2 · Hardware takes over the display
 
-[Full V2.1 gallery and files](Version_2.1/README.md) · [KiCad project](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pro) · [Schematic](Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch) · [SMT BOM](Version_2.1/bom/TriBitLux_V2_1_JLCPCB_SMT.csv) · [SMT placement](Version_2.1/cpl/TriBitLux_V2_1_JLCPCB_SMT_CPL.csv) · [Layout review](Version_2.1/review/README.md)
+**Physical prototype · 74LS48 decoder · Serial monitoring**
+
+Adding the 74LS48 completed the dedicated hardware display path: comparator bank → encoder → decoder → seven-segment display. The Nano supplied 5 V and received the three encoder bits so the serial console could show them for assurance.
+
+### The wiring, up close
+
+| Overhead wiring view | Sensor and jumper connections |
+|:---:|:---:|
+| [![V1.2 overhead wiring view with the seven-segment display unlit](docs/media/v1-2-135115.jpg)](Version_1.2/assets/TriBitLux_V1_2_135115.jpg) | [![V1.2 close view showing the LDR at the front of the breadboard](docs/media/v1-2-135217.jpg)](Version_1.2/assets/TriBitLux_V1_2_135217.jpg) |
+
+<p align="center">
+  <a href="Version_1.2/assets/TriBitLux_V1_2_140313.jpg"><img src="docs/media/v1-2-140313.jpg" width="760" alt="Powered V1.2 breadboard with the seven-segment display illuminated"></a>
+  <br><sub>The powered build. The photographed display is driven by the 74LS48.</sub>
+</p>
+
+| Additional powered view | A second captured state |
+|:---:|:---:|
+| [![V1.2 powered breadboard, JPEG preview of original HEIC photograph 0733](docs/media/v1-2-0733.jpg)](Version_1.2/assets/TriBitLux_V1_2_0733.heic) | [![V1.2 powered breadboard, JPEG preview of original HEIC photograph 0734](docs/media/v1-2-0734.jpg)](Version_1.2/assets/TriBitLux_V1_2_0734.heic) |
+
+*The last two previews link to the original HEIC photographs. Large photographs throughout this page use smaller preview copies; click them for the originals.*
+
+**Open this version:** [Serial-monitor sketch](Version_1.2/firmware/TriBitLux_V1_2_LIC/TriBitLux_V1_2_LIC.ino) · [Original photo collection](Version_1.2/assets/)
+
+The saved sketch includes experimental segment-driving code. In the photographed build, the **74LS48 drives the display**, while the Nano observes the encoder output.
+
+---
+
+<a id="v11"></a>
+
+## 🧠 V1.1 · Giving the encoder its own IC
+
+**Physical prototype · 74F148 priority encoder · EasyEDA design exports**
+
+The 74F148 took over priority encoding from the Nano. The comparator bank now fed a dedicated logic IC, which produced the three output bits. The Nano continued to decode those bits and drive the display. This version also has an EasyEDA schematic and PCB design archive.
+
+### At the workbench
+
+| Schematic beside the build | Full demonstration setup |
+|:---:|:---:|
+| [![V1.1 schematic on screen beside the breadboard](docs/media/v1-1-3132.png)](Version_1.1/assets/TriBitLux_V1_1_3132.JPG) | [![V1.1 breadboard displaying 2 beside a reference table](docs/media/v1-1-3134.png)](Version_1.1/assets/TriBitLux_V1_1_3134.JPG) |
+| **Schematic and wiring together** | **Display and reference table** |
+
+| Watching the output | Another angle of the setup |
+|:---:|:---:|
+| [![V1.1 breadboard with reference information and a serial log visible on a phone](docs/media/v1-1-3135.png)](Version_1.1/assets/TriBitLux_V1_1_3135.JPG) | [![Angled view of the V1.1 breadboard, schematic and serial log](docs/media/v1-1-3136.png)](Version_1.1/assets/TriBitLux_V1_1_3136.JPG) |
+| **Hardware output alongside monitoring** | **The complete workbench arrangement** |
+
+
+### From connections to a board design
+
+| Schematic | Routed PCB layout |
+|:---:|:---:|
+| [![V1.1 EasyEDA schematic](Version_1.1/assets/TriBit_Lux_V1_1.png)](Version_1.1/schematic/Schematic_TriBitLux_V1_1-LIC_2026-10-06.pdf) | [![V1.1 annotated EasyEDA PCB layout](Version_1.1/assets/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png)](Version_1.1/assets/PCB_PCB_TriBit_Version_1_1-LIC_2_2026-10-08.png) |
+
+<p align="center">
+  <a href="Version_1.1/pcb/TriBitLux_V1_1.jpeg"><img src="Version_1.1/pcb/TriBitLux_V1_1.jpeg" width="820" alt="V1.1 EasyEDA blue PCB design render with an Arduino Nano fitted"></a>
+  <br><sub>EasyEDA design render with the Nano fitted. This image documents the board design.</sub>
+</p>
+
+| Top board view · SVG | Bottom board view · SVG |
+|:---:|:---:|
+| [![V1.1 top board-view export](Version_1.1/assets/TriBitLux_V1_1_Top.png)](Version_1.1/pcb/TriBitLux_V1_1_Top.svg) | [![V1.1 bottom board-view export](Version_1.1/assets/TriBitLux_V1_1_Bottom.png)](Version_1.1/pcb/TriBitLux_V1_1_Bottom.svg) |
+
+**Open this version:** [Schematic PDF](Version_1.1/schematic/Schematic_TriBitLux_V1_1-LIC_2026-10-06.pdf) · [PCB PDF](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06.pdf) · [Arduino sketch](Version_1.1/firmware/TriBitLux_V1_1_LIC/TriBitLux_V1_1_LIC.ino) · [BOM](Version_1.1/bom/BOM_TriBitLux_V1_1-LIC_2026-10-06.csv) · [Gerber archive](Version_1.1/gerbers/Gerber_TriBitLux_V1_1-LIC_PCB_TriBitLux_V1_1-LIC_2_2026-10-06.zip)
+
+<details>
+<summary><strong>Browse the individual EasyEDA layer PDFs</strong></summary>
+
+| Export | Top | Bottom |
+|---|---|---|
+| Copper | [Top layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopLayer.pdf) | [Bottom layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomLayer.pdf) |
+| Silkscreen | [Top silk](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopSilkLayer.pdf) | [Bottom silk](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomSilkLayer.pdf) |
+| Solder mask | [Top mask](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopSolderMaskLayer.pdf) | [Bottom mask](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomSolderMaskLayer.pdf) |
+| Paste mask | [Top paste](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/TopPasteMaskLayer.pdf) | [Bottom paste](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BottomPasteMaskLayer.pdf) |
+
+[Board outline](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/BoardOutLine.pdf) · [Holes](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/Hole.pdf) · [Multi-layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/Multi-Layer.pdf) · [Document layer](Version_1.1/pcb/PCB_PCB_TriBitLux_V1_1-LIC_2_2026-10-06/Document.pdf)
+
+</details>
+
+---
+
+<a id="v10"></a>
+
+## 🔌 V1.0 · The first breadboard
+
+**Physical prototype · Two LM339s · Arduino Nano**
+
+The LDR and comparator bank moved out of the simulator and onto a breadboard. The Nano read the comparator outputs and drove the seven-segment display. The saved recording captures the early physical build, with the jumper wiring fully on show.
+
+<p align="center">
+  <a href="Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4"><img src="docs/media/v1-0-breadboard-video.jpg" width="760" alt="Frame from the V1.0 breadboard recording, showing the Nano, comparator wiring and illuminated seven-segment display"></a>
+  <br><strong><a href="Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4">▶ Watch the breadboard recording · 24 seconds</a></strong>
+</p>
+
+### A closer look at the display pins
+
+[![Animated guide to the seven-segment display pin connections](Version_1.0/assets/TriBitLux_pin_visualizer_demo_dark.gif)](https://xemacs-666.github.io/TriBit-Lux/Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html)
+
+*Click the animation to explore the display pin layout.*
+
+**Open this version:** [Recording](Version_1.0/assets/TriBitLux_V1_0%202026-10-06%20at%2023.10.18.mp4) · [Interactive pin guide](https://xemacs-666.github.io/TriBit-Lux/Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [HTML source](Version_1.0/assets/TriBitLux_V1_0_pin_visualizer.html) · [Visualizer sketch](Version_1.0/firmware/TriBitLux_V1_0_visualizer/TriBitLux_V1_0_visualizer.ino)
+
+The saved visualizer sketch is a debugging aid; it is not the complete original V1.0 display firmware.
+
+---
+
+<a id="v01"></a>
+
+## 🌤️ V0.1 · Let there be light
+
+**TinkerCAD simulation · LDR input · LM339 comparators**
+
+The potentiometer input was replaced with an LDR, and the comparator section moved to LM339 devices. Now the input responded to light. The Uno still supplied both digital stages: deciding the encoded value and converting it into segment signals.
+
+[![V0.1 TinkerCAD simulation with an LDR and LM339 comparator stage](Version_0.1/assets/Tribit%20Lux%20V0.1.png)](https://www.tinkercad.com/things/gNVAR2cQYVG-tribit-lux-v01?sharecode=9jLX_zzwRAG0_mHYH1R4YNfyqPdioSTKhPsh0a257ho)
+
+*The sensor enters the picture. The display logic is still handled by the Uno.*
+
+**Open this version:** [Simulation](https://www.tinkercad.com/things/gNVAR2cQYVG-tribit-lux-v01?sharecode=9jLX_zzwRAG0_mHYH1R4YNfyqPdioSTKhPsh0a257ho) · [Schematic PDF](Version_0.1/schematic/Tribit%20Lux%20V0.1.pdf) · [Arduino sketch](Version_0.1/firmware/tribit_lux_v0_01/tribit_lux_v0_01.ino) · [BOM](Version_0.1/bom/bom.csv)
+
+---
+
+<a id="v00"></a>
+
+## 🧪 V0.0 · Starting with a knob
+
+**TinkerCAD simulation · Potentiometer input · Arduino Uno**
+
+The first version used a potentiometer to stand in for the sensor voltage. Turning the knob changed the input to the comparator bank, while the Uno performed priority encoding and drove the seven-segment display. This established the basic voltage-to-level idea before adding a light-sensitive input.
+
+[![V0.0 TinkerCAD simulation with potentiometer input, comparator circuitry and Arduino Uno](Version_0.0/assets/Tribit%20Lux%20V0.0.png)](https://www.tinkercad.com/things/60Tk7pVbgVW-tribit-lux-v00?sharecode=bsW5T545n6U2o7TxL7Ta_quI-Dl-KoERqczIX1Q8Fq4)
+
+*The starting point. Click the circuit image to open its TinkerCAD simulation.*
+
+**Open this version:** [Simulation](https://www.tinkercad.com/things/60Tk7pVbgVW-tribit-lux-v00?sharecode=bsW5T545n6U2o7TxL7Ta_quI-Dl-KoERqczIX1Q8Fq4) · [Schematic PDF](Version_0.0/schematic/Tribit%20Lux%20V0.0.pdf) · [Arduino sketch](Version_0.0/firmware/tribit_lux_v0_00/tribit_lux_v0_00.ino) · [BOM](Version_0.0/bom/bom.csv)
+
+---
+
+<a id="explore"></a>
+
+## 🎛️ Explore the project
+
+<p align="center">
+  <a href="https://xemacs-666.github.io/TriBit-Lux/Version_2.0/assets/tribit-lux-explorer.html"><img src="Version_2.0/assets/tribit-lux-preview.gif" width="820" alt="Animated project explorer showing the version timeline, comparator states and brightness levels 0 through 7"></a>
+</p>
+
+<p align="center"><strong><a href="https://xemacs-666.github.io/TriBit-Lux/Version_2.0/assets/tribit-lux-explorer.html">Open the interactive TriBit Lux explorer →</a></strong></p>
+
+| Follow the evolution | Trace a signal | Preview the next revision |
+|---|---|---|
+| Select a version and watch the role of the Arduino change. | Move the voltage slider and follow the comparator outputs, three encoder bits and displayed digit. | Switch to the V2.1 concept to see cumulative threshold lights. |
+
+The preview above is animated; the linked page is interactive. The explorer uses the updated V2.0 reference mapping, including the level-0 band. It models ideal logic, with real-world tolerances, noise and timing left out. [Open the standalone HTML file](Version_2.0/assets/tribit-lux-explorer.html).
+
+---
 
 <a id="roadmap"></a>
 
@@ -382,23 +395,23 @@ The planned lights should make each level transition easier to see. The acrylic 
 TriBit-Lux/
 ├── README.md                    Illustrated project walkthrough
 ├── docs/media/                  Photo previews and video poster
-├── Version_0.0/                 Potentiometer simulation
-├── Version_0.1/                 LDR simulation
-├── Version_1.0/                 First breadboard and pin visualizer
-├── Version_1.1/                 Encoder build and EasyEDA archive
-├── Version_1.2/                 Hardware decoder and serial sketch
-├── Version_1.3/                 LCD build and demonstrations
+├── Version_2.1/
+│   ├── README.md                Hybrid board gallery, pinout and status
+│   ├── TriBitLux_V2_1/          Editable KiCad project, schematic and PCB
+│   ├── assets/                 XEMACS’s board renders and schematic image
+│   ├── schematic/              Current netlist
+│   ├── bom/                    Full and SMT-only parts lists
+│   ├── cpl/                    Native and JLCPCB placement exports
+│   └── review/                 Current checks and layout feedback
 ├── Version_2.0/                 Unfabricated through-hole milestone
-└── Version_2.1/
-    ├── README.md                Hybrid board gallery, pinout and status
-    ├── TriBitLux_V2_1/          Editable KiCad project, schematic and PCB
-    ├── assets/                 XEMACS’s board renders and schematic image
-    ├── schematic/              Current netlist
-    ├── bom/                    Full and SMT-only parts lists
-    ├── cpl/                    Native and JLCPCB placement exports
-    └── review/                 Current checks and layout feedback
+├── Version_1.3/                 LCD build and demonstrations
+├── Version_1.2/                 Hardware decoder and serial sketch
+├── Version_1.1/                 Encoder build and EasyEDA archive
+├── Version_1.0/                 First breadboard and pin visualizer
+├── Version_0.1/                 LDR simulation
+└── Version_0.0/                 Potentiometer simulation
 ```
 
 Each version folder contains the records that survived that stage. Older versions may not contain a complete build package. The photographs, videos and interactive pages show the development process; the editable design files describe the circuit. KiCad temporary files and backups are excluded through `.gitignore`.
 
-<p align="center"><strong>Built and documented by XEMACS</strong><br>From a simulated input to a board designed around light.<br><br><a href="#explore">Try the explorer</a> · <a href="#journey">Back to the journey</a> · <a href="https://github.com/XEMACS-666/TriBit-Lux">Repository</a></p>
+<p align="center"><strong>Built and documented by XEMACS</strong><br>From a simulated input to a board designed around light.<br><br><a href="#explore">Try the explorer</a> · <a href="#v21">Back to the latest design</a> · <a href="https://github.com/XEMACS-666/TriBit-Lux">Repository</a></p>
