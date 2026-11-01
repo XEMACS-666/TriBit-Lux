@@ -1,18 +1,18 @@
-"Reference","Qty","Value","DNP","Exclude from BOM","Exclude from Board","Footprint","Datasheet"
-"C1,C2,C3,C4,C7","5","0.1u","","","","Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder","~"
-"C5,C6","2","2.2u","","","","Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder","~"
-"D1,D2,D3,D4,D5,D6,D7","7","RED","","","","LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder","~"
-"J1","1","Conn_01x03_Pin","","","","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical","~"
-"R1,R2,R3,R4,R5,R6,R7,R8","8","10k","","","","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","~"
-"R9","1","LDR07","","","","OptoDevice:R_LDR_D20mm_P15.5mm_Vertical","http://www.tme.eu/de/Document/f2e3ad76a925811312d226c31da4cd7e/LDR07.pdf"
-"R10,R11,R12,R13,R14,R15,R16","7","220","","","","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","~"
-"R17,R18,R19,R20,R21,R22,R23,R24","8","2.2k","","","","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","~"
-"R25,R26,R27","3","10k","","","","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","~"
-"R28,R29,R30,R31,R32,R33,R34","7","1.5k","","","","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","~"
-"RV1","1","10k","","","","Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical","~"
-"U1,U2","2","LM339","","","","Package_DIP:DIP-14_W7.62mm","https://www.st.com/resource/en/datasheet/lm139.pdf"
-"U3","1","74LS148","","","","Package_DIP:DIP-16_W7.62mm","http://www.ti.com/lit/gpn/sn74LS148"
-"U4","1","74LS48","","","","Package_DIP:DIP-16_W7.62mm","http://www.ti.com/lit/gpn/sn74LS48"
-"U5","1","D198K","","","","Display_7Segment:7SegmentLED_LTS6760_LTS6780","https://ia800903.us.archive.org/24/items/CTKD1x8K/Cromatek%20D168K.pdf"
-"U6","1","MCP1700-2502E/TO","","","","Package_TO_SOT_THT:TO-92_Inline","https://ww1.microchip.com/downloads/en/DeviceDoc/20001826D.pdf"
-"U7","1","74HCT244","","","","Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm","https://www.ti.com/lit/ds/symlink/sn74hct244.pdf"
+Id;Designator;Footprint;Quantity;Designation;Supplier and ref
+1;R25,R26,R27;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;3;10k;
+2;U4;DIP-16_W7.62mm;1;74LS48;
+3;R1,R2,R3,R4,R5,R6,R7,R8;R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;8;10k;
+4;RV1;Potentiometer_Runtron_RM-065_Vertical;1;10k;
+5;R17,R18,R19,R20,R21,R22,R23,R24;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;8;2.2k;
+6;R10,R11,R12,R13,R14,R15,R16;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;7;220;
+7;D1,D2,D3,D4,D5,D6,D7;LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder;7;RED;
+8;U1,U2;DIP-14_W7.62mm;2;LM339;
+9;R28,R29,R30,R31,R32,R33,R34;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;7;1.5k;
+10;J1;PinHeader_1x03_P2.54mm_Vertical;1;Conn_01x03_Pin;
+11;R35;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;1;470;
+12;U5;7SegmentLED_LTS6760_LTS6780;1;D198K;
+13;C1,C2,C3,C4,C7;C_0805_2012Metric_Pad1.18x1.45mm_HandSolder;5;0.1u;
+14;R9;R_LDR_D20mm_P15.5mm_Vertical;1;LDR07;
+15;U7;SOIC-20W_7.5x12.8mm_P1.27mm;1;74HCT244;
+16;U3;DIP-16_W7.62mm;1;74LS148;
+17;U6;TL431_TO92_Body4.1x3.1mm_P1.27mm;1;TL431LP;

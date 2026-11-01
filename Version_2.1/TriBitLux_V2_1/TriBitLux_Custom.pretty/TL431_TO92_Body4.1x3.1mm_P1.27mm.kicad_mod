@@ -1,0 +1,122 @@
+(footprint "TL431_TO92_Body4.1x3.1mm_P1.27mm"
+(version 20241229)
+(generator "pcbnew")
+		(layer "F.Cu")
+		
+		(descr "TL431 measured body 4.1 x 3.1 mm; 1.27 mm lead pitch. Body curve/lead offset and 3D model are nominal. XEMACS.")
+		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
+		(property "Reference" "REF**"
+			(at 1.27 -3.56)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "b56fe32c-06f8-45b5-8137-be8eaf0e5a31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.16)
+				)
+			)
+		)
+		(property "Value" "TL431_TO92_Body4.1x3.1mm_P1.27mm"
+			(at 1.27 2.79)
+			(layer "F.Fab")
+			(uuid "93373f7a-82cc-4f44-86f9-758bbf664a27")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.16)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl431.pdf"
+			(at 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9d9e15a-ecc7-4acb-a1b5-381ddb9b5803")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.16)
+				)
+			)
+		)
+		(property "Description" "Shunt Regulator, TO-92"
+			(at 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e03a1f61-7cea-471e-bdd5-4e4c083cc97b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.16)
+				)
+			)
+		)
+		
+		
+		(attr through_hole)
+		
+		
+		
+		
+		
+		(fp_text user "${REFERENCE}"
+			(at 1.27 0)
+			(layer "F.Fab")
+			(uuid "1e4c7be7-bf04-41c0-b1fc-2b203764350d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.16)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0)
+			(size 1.06 1.5)
+			(drill 0.75)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "24580495-8ff1-4857-b6f2-e4615386ab04")
+		)
+		(pad "2" thru_hole oval
+			(at 1.27 0)
+			(size 1.06 1.5)
+			(drill 0.75)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "448e1b14-1386-47cd-b911-353d44d360e6")
+		)
+		(pad "3" thru_hole oval
+			(at 2.54 0)
+			(size 1.06 1.5)
+			(drill 0.75)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "16d32a30-c16f-4ee7-a01e-68248a27e126")
+		)
+		(embedded_fonts no)
+		(model "${KICAD9_3DMODEL_DIR}/Package_TO_SOT_THT.3dshapes/TO-92_Inline.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+		(fp_line (start -0.490682 1.05) (end 3.030682 1.05) (stroke (width 0.1) (type solid)) (layer "F.Fab") (uuid "23d67f83-3dad-48c0-8008-bf876980ee40"))
+		(fp_arc (start -0.490682 1.05) (mid -0.78 0) (end 1.27 -2.05) (stroke (width 0.1) (type solid)) (layer "F.Fab") (uuid "66c3da86-4bdb-4e0c-86f5-e63f7c7cfac7"))
+		(fp_arc (start 1.27 -2.05) (mid 3.32 0) (end 3.030682 1.05) (stroke (width 0.1) (type solid)) (layer "F.Fab") (uuid "93a36752-36f7-425d-9197-8474ff159367"))
+		(fp_line (start -0.590108 1.23) (end 3.130108 1.23) (stroke (width 0.16) (type solid)) (layer "F.SilkS") (uuid "b6f41c35-00e1-490d-8326-4bb2f96b33fb"))
+		(fp_arc (start -0.590108 1.23) (mid -0.96 0) (end 1.27 -2.23) (stroke (width 0.16) (type solid)) (layer "F.SilkS") (uuid "17604ab0-11a9-4952-99a1-5186895a5c63"))
+		(fp_arc (start 1.27 -2.23) (mid 3.5 0) (end 3.130108 1.23) (stroke (width 0.16) (type solid)) (layer "F.SilkS") (uuid "b59f41a7-aa7c-43b2-92a7-7632a9dffdcb"))
+		(fp_rect (start -1.05 -2.3) (end 3.6 1.3) (stroke (width 0.05) (type solid)) (fill none) (layer "F.CrtYd") (uuid "7adca389-fa12-4a01-a51d-dffb2df4b3a5"))
+	)

@@ -63,7 +63,7 @@ The light-sensing circuit now fits on a compact rectangle with a regular resisto
 |:---:|:---:|
 | [![V2.1 front without component bodies](Version_2.1/assets/TriBitLux_V2_1_Top%28Non-Populated%29.png)](Version_2.1/assets/TriBitLux_V2_1_Layout.png) | [![V2.1 underside with QR and threshold voltages](Version_2.1/assets/TriBitLux_V2_1_Bottom.png)](Version_2.1/assets/TriBitLux_V2_1_Bottom.png) |
 
-JLCPCB is planned to assemble **40 SMT parts per board**; XEMACS will solder the **17 through-hole parts**. The three-pin header provides 5 V input, ground and the analog sensor voltage for measurement. The nominal thresholds are spaced by 0.3125 V; the displayed level is not calibrated lux.
+JLCPCB is planned to assemble **39 SMT parts per board**; XEMACS will solder the **17 through-hole parts**. The three-pin header provides 5 V input, ground and the analog sensor voltage for measurement. The nominal thresholds are spaced by 0.3125 V; the displayed level is not calibrated lux.
 
 These are XEMACS’s existing CAD exports. They precede the 30 October silkscreen alignment; updated high-resolution renders will be supplied by XEMACS.
 
