@@ -8552,7 +8552,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 88.9 125.73 0)
 			(effects
 				(font
@@ -8806,7 +8806,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 88.9 186.69 0)
 			(effects
 				(font
@@ -8988,7 +8988,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket"
 			(at 165.1 157.48 0)
 			(effects
 				(font
@@ -9787,7 +9787,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 102.87 0)
 			(effects
 				(font
@@ -10186,7 +10186,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 194.31 0)
 			(effects
 				(font
@@ -10367,7 +10367,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 133.35 0)
 			(effects
 				(font
@@ -10677,7 +10677,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 179.07 0)
 			(effects
 				(font
@@ -10870,7 +10870,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket"
 			(at 205.74 154.94 0)
 			(effects
 				(font
@@ -12761,7 +12761,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 148.59 0)
 			(effects
 				(font
@@ -13026,7 +13026,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 163.83 0)
 			(effects
 				(font
@@ -13139,7 +13139,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 118.11 0)
 			(effects
 				(font
@@ -14549,7 +14549,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket"
 			(at 114.3 209.55 0)
 			(effects
 				(font
