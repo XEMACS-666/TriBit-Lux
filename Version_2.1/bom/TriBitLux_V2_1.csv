@@ -8,7 +8,7 @@ Id;Designator;Footprint;Quantity;Designation;Supplier and ref
 7;D1,D2,D3,D4,D5,D6,D7;LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder;7;RED;
 8;U1,U2;DIP-14_W7.62mm_Socket;2;LM339;
 9;R28,R29,R30,R31,R32,R33,R34;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;7;1.5k;
-10;J1;PinHeader_1x03_P2.54mm_Vertical;1;Conn_01x03_Pin;
+10;J1;TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal;1;Conn_01x03_Pin;
 11;R35;R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;1;470;
 12;U5;7SegmentLED_LTS6760_LTS6780;1;D198K;
 13;C1,C2,C3,C4,C7;C_0805_2012Metric_Pad1.18x1.45mm_HandSolder;5;0.1u;

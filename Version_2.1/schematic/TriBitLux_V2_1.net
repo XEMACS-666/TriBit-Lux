@@ -1,7 +1,7 @@
 (export (version "E")
   (design
     (source "/Users/msvaibhavrajgmail.com/Developer/TriBit Lux/Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch")
-    (date "2026-11-02T22:06:09+0530")
+    (date "2026-11-12T21:06:44+0530")
     (tool "Eeschema 9.0.4")
     (sheet (number "1") (name "/") (tstamps "/")
       (title_block
@@ -214,11 +214,11 @@
       (tstamps "c5776b0e-dbd5-4f6a-bc46-c189a8fa6352"))
     (comp (ref "J1")
       (value "Conn_01x03_Pin")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
+      (footprint "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal")
       (datasheet "~")
       (description "Generic connector, single row, 01x03, script generated")
       (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
+        (field (name "Footprint") "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal")
         (field (name "Datasheet") "~")
         (field (name "Description") "Generic connector, single row, 01x03, script generated"))
       (libsource (lib "Connector") (part "Conn_01x03_Pin") (description "Generic connector, single row, 01x03, script generated"))

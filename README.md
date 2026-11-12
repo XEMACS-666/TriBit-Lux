@@ -57,7 +57,7 @@ V2.2 is the planned fabricated result; see [what’s next](#roadmap).
 
 [![V2.1 populated CAD render by XEMACS](Version_2.1/assets/TriBitLux_V2_1_Top.png)](Version_2.1/README.md)
 
-The light-sensing circuit now fits on a compact rectangle with a regular resistor/LED column, two comparator banks, dedicated encoder and decoder ICs, and a buffer for the threshold LEDs. Four mounting holes form a symmetric 73 × 31 mm pattern. The underside carries a threshold guide and a repository QR code.
+The light-sensing circuit now fits on a compact rectangle with a regular resistor/LED column, two comparator banks, dedicated encoder and decoder ICs, and a buffer for the threshold LEDs. Four mounting holes form a symmetric 73 × 34 mm pattern, with their centres 3.5 mm from adjacent straight board edges. The underside carries a threshold guide and a repository QR code.
 
 | Front · Read the layout | Back · Follow the levels |
 |:---:|:---:|
