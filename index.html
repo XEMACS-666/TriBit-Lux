@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1112">
+<meta name="description" content="TriBit Lux by XEMACS: a 3-bit light-sensing circuit, from TinkerCAD and breadboards to a hybrid KiCad PCB. Explore the 2.5 V ADC lab and original project files.">
+<title>TriBit Lux — One light. Eight levels. Three bits.</title>
+<link rel="icon" href="website/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="website/styles.css">
+<script type="module" src="website/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+ <div class="shell nav-row"><a class="wordmark" href="#overview">TriBit Lux<span class="wordmark-detail"> / XEMACS</span></a>
+ <nav id="site-nav" class="nav-links" aria-label="Main navigation">
+ <a href="#overview">Home</a><a href="#adc-lab">ADC lab</a><a href="#evolution">Evolution</a><a href="#pcb-design">PCB</a><a href="#documentation">Documentation</a><a href="#downloads">Resources</a>
+ </nav>
+ <div class="nav-actions"><button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to light theme" aria-pressed="false">◐</button><button id="menu-toggle" class="icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">☰</button></div></div>
+ <div class="progress-track" aria-hidden="true"><div id="scroll-progress"></div></div>
+</header>
+<main id="main">
+<section id="overview" class="hero grid-bg"><div class="shell">
+ <div class="hero-grid"><div>
+ <p class="eyebrow">An electronics journey / V0.0 → V2.1</p>
+ <h1>TriBit<br><span>Lux.</span></h1>
+ <p class="hero-claim">One light. Eight levels. Three bits.</p>
+ <p class="hero-copy">A light-sensing circuit, built one experiment at a time. Follow the journey from a simulated voltage to jumper wires, dedicated logic and a compact hybrid PCB.</p>
+ <div class="actions"><a class="button button-primary" href="#adc-lab">Enter the ADC lab <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="#evolution">Explore the journey ↓</a></div>
+ </div>
+ <div class="hero-hardware"><div class="hardware-heading"><span class="eyebrow">Design study / 02.1</span><span class="status">Awaiting fabrication</span></div>
+ <button id="hero-image" class="image-button" type="button" aria-label="Enlarge V2.1 PCB render"><img src="Version_2.1/assets/TriBitLux_V2_1_Top.png" width="5116" height="2752" alt="Authentic V2.1 hybrid PCB CAD render by XEMACS" fetchpriority="high"></button>
+ <div class="hardware-footer"><div><strong>From light to logic.</strong><p class="provenance">80 × 41 mm · THT + SMT<br>Saved CAD render · not fabricated hardware</p><button id="hero-animation" class="text-button" type="button" aria-pressed="false">Pause display animation</button></div><div class="seven small" id="hero-display" aria-hidden="true"><i class="seg h a"></i><i class="seg v b"></i><i class="seg v c"></i><i class="seg h d"></i><i class="seg v e"></i><i class="seg v f"></i><i class="seg h g"></i></div></div>
+ </div></div>
+ <div class="hero-stats"><div><strong>03<span> bits</span></strong><p>000 → 111</p></div><div><strong>08<span> levels</span></strong><p>Seven nominal thresholds</p></div><div><strong>2.5<span> V</span></strong><p>Current analog reference</p></div><div><strong>08<span> versions</span></strong><p>Simulation → hybrid PCB</p></div></div>
+</div></section>
+<noscript><div class="shell notice">JavaScript enables the lab, galleries and resource filters. You can still open the <a href="README.md">project walkthrough</a>, <a href="README.md">V2.1 documentation</a> and <a href="website/inventory.csv">complete asset inventory</a>.</div></noscript>
+<section id="adc-lab" class="section">
+    <div class="shell">
+     <p class="eyebrow">01 / INTERACTIVE ENGINEERING LAB</p>
+     <h2 class="section-title">Explore the conversion.</h2>
+     <p class="section-lead">Adjust an idealized analog voltage to see seven nominal thresholds, cumulative threshold LEDs, three digital bits, and the display respond. Educational simulation only — not a calibrated physical measurement.</p>
+     <div class="lab-layout">
+      <div class="panel lab-controls">
+       <h3>Analog input <span class="tag">V2.1 · 2.5 V</span></h3><label class="eyebrow" for="voltage">INPUT VOLTAGE / 0–2.5 V</label>
+       <div id="voltage-readout" class="lab-value" aria-live="polite" aria-atomic="true">
+        0.0000 V
+       </div><input id="voltage" type="range" min="0" max="2.5" step="0.0001" value="0" aria-describedby="voltage-help">
+       <div class="slider-endpoints">
+        <span>0.0000 V</span><span>2.500 V</span>
+       </div>
+       <div class="control-bottom"><span id="voltage-help" class="muted">Move the slider or use arrow keys.</span> <button id="reset-voltage" type="button" class="subtle-button">Reset input</button>
+       </div>
+       <div id="level-presets" class="level-presets" aria-label="Jump to a quantization level"></div><div class="thresholds">
+        <p class="eyebrow">V2.1 / SEVEN NOMINAL THRESHOLDS</p>
+        <div id="threshold-rows" aria-label="Comparator threshold states">
+         <div class="threshold-row" data-threshold="0.3125">
+          <span class="led" aria-hidden="true"></span><span>T1 · 0.3125 V</span><span class="state">OFF</span><span class="mono">LED 1</span>
+         </div>
+         <div class="threshold-row" data-threshold="0.6250">
+          <span class="led" aria-hidden="true"></span><span>T2 · 0.6250 V</span><span class="state">OFF</span><span class="mono">LED 2</span>
+         </div>
+         <div class="threshold-row" data-threshold="0.9375">
+          <span class="led" aria-hidden="true"></span><span>T3 · 0.9375 V</span><span class="state">OFF</span><span class="mono">LED 3</span>
+         </div>
+         <div class="threshold-row" data-threshold="1.2500">
+          <span class="led" aria-hidden="true"></span><span>T4 · 1.2500 V</span><span class="state">OFF</span><span class="mono">LED 4</span>
+         </div>
+         <div class="threshold-row" data-threshold="1.5625">
+          <span class="led" aria-hidden="true"></span><span>T5 · 1.5625 V</span><span class="state">OFF</span><span class="mono">LED 5</span>
+         </div>
+         <div class="threshold-row" data-threshold="1.8750">
+          <span class="led" aria-hidden="true"></span><span>T6 · 1.8750 V</span><span class="state">OFF</span><span class="mono">LED 6</span>
+         </div>
+         <div class="threshold-row" data-threshold="2.1875">
+          <span class="led" aria-hidden="true"></span><span>T7 · 2.1875 V</span><span class="state">OFF</span><span class="mono">LED 7</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="panel lab-output">
+       <h3 class="">Digital output</h3>
+       <p class="eyebrow">SEVEN-SEGMENT / CODE 0–7</p>
+       <div class="output-center">
+        <div id="lab-display" class="seven" aria-hidden="true">
+         <i class="seg h a"></i><i class="seg v b"></i><i class="seg v c"></i><i class="seg h d"></i><i class="seg v e"></i><i class="seg v f"></i><i class="seg h g"></i>
+        </div>
+       </div>
+       <p id="output-live" class="mono muted" role="status" aria-live="polite" aria-atomic="true">Output level 0; binary 000; zero thresholds crossed.</p>
+       <p class="eyebrow">ENCODED OUTPUT / B2 B1 B0</p>
+       <div class="bits" aria-label="Binary output">
+        <div class="bit">
+         <span>B2</span><strong id="bit-2">0</strong>
+        </div>
+        <div class="bit">
+         <span>B1</span><strong id="bit-1">0</strong>
+        </div>
+        <div class="bit">
+         <span>B0</span><strong id="bit-0">0</strong>
+        </div>
+       </div>
+      </div>
+     </div>
+     <p class="provenance">Ideal V2.1 model · a threshold belongs to the higher band at equality. Physical transitions depend on tolerances and noise. “ON” denotes the threshold LED, not an active-LOW encoder input.</p>
+<p class="resources">Earlier experiments: <a href="Version_1.3/assets/TriBitLux_V1_3_%285V%29.html">V1.3 · 5 V LCD demo ↗</a> · <a href="Version_1.3/assets/TriBitLux_V1_3_%283.3V%29.html">V1.3 · 3.3 V LCD demo ↗</a> · <a href="Version_2.0/assets/tribit-lux-explorer.html">Historical 3.3 V explorer ↗</a>. Its V2.1 concept predates the current design.</p>
+</div></section>
+<section id="evolution" class="section grid-bg"><div class="shell">
+ <p class="eyebrow">02 / Project evolution</p><h2 class="section-title">Every version has a story.</h2><p class="section-lead">Eight milestones. Real project records. Trace how the Arduino’s role changes as the circuit moves toward dedicated hardware.</p>
+ <div class="evolution-grid"><div id="version-nav" class="version-nav" role="tablist" aria-label="Project versions"></div><article id="version-panel" class="panel version-panel" role="tabpanel" tabindex="0"></article></div>
+</div></section>
+<section id="pcb-design" class="section"><div class="shell">
+ <p class="eyebrow">03 / PCB showcase</p><h2 class="section-title">Read the board.</h2><p class="section-lead">Inspect the real KiCad exports: component placement, front and back views, copper routing and schematics. Both PCB milestones remain unfabricated.</p>
+ <div class="pcb-selector"><label for="pcb-version">Board revision</label><select id="pcb-version"><option value="2.1">V2.1 · Hybrid / 2.5 V</option><option value="2.0">V2.0 · Through-hole / 3.3 V</option></select></div>
+ <div id="pcb-specs" class="pcb-specs"></div><div id="pcb-gallery" class="panel gallery"></div>
+ <p id="pcb-note" class="provenance"></p><div id="pcb-links" class="resource-links"></div>
+</div></section>
+<section id="documentation" class="section grid-bg"><div class="shell">
+ <p class="eyebrow">04 / Technical documentation</p><h2 class="section-title">Follow the signal.</h2><p class="section-lead">The latest circuit uses a 2.5 V sensor/reference rail and 5 V logic. The displayed number is a relative brightness level, not calibrated lux.</p>
+ <div class="signal-diagram" aria-label="Signal path: light through LDR divider, LM339 comparators, 74LS148 encoder, 74LS48 decoder to display. TL431 reference ladder feeds comparators; a 74HCT244 branch drives seven LEDs.">
+ <div class="reference-branch">TL431 · 2.5 V → 8 × 10 kΩ ladder → seven references ↓</div>
+ <ol class="signal-chain"><li><small>01 / SENSE</small><strong>LDR + RV1</strong><span>Analog voltage</span></li><li><small>02 / COMPARE</small><strong>2 × LM339</strong><span>Parallel thresholds</span></li><li><small>03 / ENCODE</small><strong>74LS148</strong><span>Three-bit code</span></li><li><small>04 / DECODE</small><strong>74LS48</strong><span>Segment signals</span></li><li><small>05 / DISPLAY</small><strong>0 → 7</strong><span>Relative level</span></li></ol>
+ <div class="led-branch">Comparator outputs → 74HCT244 buffer → seven cumulative LEDs</div>
+ </div>
+ <div class="docs">
+ <details open><summary>01 · LDR and sensitivity adjustment</summary><div class="doc-body"><p>Light lowers the LDR’s resistance. In the saved V2.1 divider, the LDR is above the sensor node and RV1 provides the adjustable path to ground, so the analog voltage rises as the LDR resistance falls. Sensitivity depends on the potentiometer setting and the LDR’s response.</p><span class="equation">VOUT ≈ 2.5 × Rlower / (RLDR + Rlower)</span><p>J1 pin 1 is 5 V input, pin 2 is ground, and pin 3 is the analog sensor output. That header does not expose the three-bit code.</p></div></details>
+ <details><summary>02 · TL431 reference and resistor ladder</summary><div class="doc-body"><p>The TL431 supplies an approximately 2.5 V sensor/reference rail. Eight equal 10 kΩ resistors divide it into eight ideal bands. Seven nonzero taps set the transitions; the comparator and logic supply remains 5 V.</p><span class="equation">Tₖ = k × VREF / 8, for k = 1…7</span><p>Nominal transitions: 0.3125, 0.6250, 0.9375, 1.2500, 1.5625, 1.8750 and 2.1875 V. V2.0 instead uses a 3.3 V reference and 0.4125 V steps.</p></div></details>
+ <details><summary>03 · LM339 comparator bank and LED buffer</summary><div class="doc-body"><p>Two quad LM339s provide eight comparator channels: seven compare the sensor with ladder taps, and the eighth uses the ground reference for the base condition. The nonzero-threshold channels place the sensor on their non-inverting inputs. Below a threshold, the output sinks LOW; above it, the pull-up can bring the output HIGH.</p><p>The non-inverting 74HCT244 buffers these seven signals to drive the cumulative LEDs through series resistors. The lab shows the ideal crossed-threshold states; it does not simulate propagation delays, analog noise or LED loading.</p></div></details>
+ <details><summary>04 · The active-LOW priority encoder</summary><div class="doc-body"><p>The 74LS148 uses active-LOW priority inputs and inverted binary outputs. The saved netlist connects ascending thresholds to I7 through I1. As the sensor rises, those inputs release in sequence; the highest-priority remaining LOW input selects the displayed level. The ground-reference comparator feeds I0.</p><p>S0, S1 and S2 connect directly to the decoder’s A, B and C inputs. The lab presents the resulting level code, from 000 to 111. At exact equality, this educational model assigns the higher band; real comparators have offset and noise.</p></div></details>
+ <details><summary>05 · Decoder and seven-segment display</summary><div class="doc-body"><p>The 74LS48 converts the three encoder bits to segment signals. Its D input is grounded, restricting the intended range to 0–7. The common-cathode display and its series resistors are shown in the original schematic.</p><p>The browser reproduces digit shapes, not electrical drive currents. V1.1 still used the Nano for display decoding; V1.2 introduced the hardware decoder.</p></div></details>
+ <details><summary>06 · Design evidence and open checks</summary><div class="doc-body"><p>The V2.1 README records zero DRC errors, zero unconnected items and zero schematic-parity issues, with 57 warnings remaining at the 30 October 2026 checkpoint. These are design checks, not results from fabricated hardware.</p><p>Fresh Gerber export, supplier DFM review, U7 placement orientation, physical fit and indicator-to-LDR optical coupling remain to be checked. V2.2 is reserved for the fabricated result.</p></div></details>
+ </div>
+ <div class="resource-links"><a href="Version_2.1/schematic/TriBitLux_V2_1.svg">Full-resolution V2.1 schematic ↗</a><a href="Version_2.1/schematic/TriBitLux_V2_1.net">Original netlist ↗</a><a href="README.md">V2.1 source documentation ↗</a><a href="README.md">Complete project walkthrough ↗</a></div>
+</div></section>
+<section id="downloads" class="section"><div class="shell">
+ <p class="eyebrow">05 / Downloads & resources</p><h2 class="section-title">Go straight to the source.</h2><p class="section-lead">Original project files, organized by version. Open the demos, inspect the designs or download the source. Files stay in their original repository locations.</p>
+ <div class="download-filters"><div><label for="download-version">Project version</label><select id="download-version"><option value="all">All versions</option></select></div><div><label for="download-type">Resource type</label><select id="download-type"><option value="all">All resources</option><option>Firmware</option><option>KiCad source</option><option>Manufacturing</option><option>Interactive demo</option><option>Documentation and schematic</option><option>Photographs and diagrams</option><option>Animation</option><option>Video</option></select></div><div><label for="download-search">Find a file</label><input id="download-search" type="search" placeholder="Schematic, BOM, .ino…"></div></div>
+ <p id="download-count" class="mono muted" role="status"></p><div id="download-list"></div>
+ <p class="resources"><a href="website/inventory.csv" download>Download verified asset inventory (CSV) ↓</a> · <a href="website/inventory.json">Inventory JSON ↗</a></p>
+</div></section>
+</main>
+<footer><div class="shell footer-row"><div><a class="wordmark" href="#overview">TriBit Lux</a><p>Designed and documented by XEMACS.</p></div><p>From a simulated input<br>to a board designed around light.</p><a class="repo-link" href="https://github.com/XEMACS-666/TriBit-Lux">Explore the repository ↗</a></div></footer>
+<dialog id="lightbox" aria-label="Full-resolution project media"><div class="lightbox-top"><p id="lightbox-caption" aria-live="polite"></p><button id="lightbox-close" type="button" aria-label="Close enlarged image">Close ×</button></div><div class="lightbox-stage"><img id="lightbox-image" alt=""></div><div class="lightbox-controls"><button id="lightbox-prev" type="button" aria-label="Previous enlarged image">← Previous</button><a id="lightbox-original" target="_blank" rel="noopener">Open full resolution ↗</a><button id="lightbox-next" type="button" aria-label="Next enlarged image">Next →</button></div></dialog>
+</body></html>
