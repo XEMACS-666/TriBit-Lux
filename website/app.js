@@ -25,6 +25,7 @@ function setHeroPaused(paused) {
 }
 function renderVoltage() {
   const result=quantize($('voltage').value);
+  $('voltage').style.setProperty('--pct', `${(result.voltage / REFERENCE) * 100}%`);
   $('voltage-readout').textContent=`${result.voltage.toFixed(4)} V`;
   $('voltage').setAttribute('aria-valuetext', `${result.voltage.toFixed(4)} volts, level ${result.level}`);
   document.querySelectorAll('.threshold-row').forEach((row,i)=>{
@@ -33,7 +34,11 @@ function renderVoltage() {
     row.setAttribute('aria-label',`Threshold ${i+1}, ${row.dataset.threshold} volts; LED ${result.crossed[i]?'on':'off'}`);
   });
   $('output-live').textContent=`Output level ${result.level}; binary ${result.binary}; ${result.level} threshold${result.level===1?'':'s'} crossed.`;
-  [2,1,0].forEach((bit,i)=>$(`bit-${bit}`).textContent=result.binary[i]);
+  [2,1,0].forEach((bit,i)=>{
+    const node = $(`bit-${bit}`);
+    node.textContent = result.binary[i];
+    node.closest('.bit')?.classList.toggle('active', result.binary[i] === '1');
+  });
   drawDisplay($('lab-display'), result.level);
   heroDigit=result.level; drawDisplay($('hero-display'), heroDigit);
   document.querySelectorAll('[data-level]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.level)===result.level)));
@@ -100,9 +105,17 @@ function gallery(host, items, name, viewLabels) {
     }
     caption.textContent=item.caption;count.textContent=`${current+1} / ${items.length}`;
     buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===current)));
+    buttons[current]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
   }
   previous.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>show(current+1));
   previous.disabled=next.disabled=items.length<2;
+  host.tabIndex=0; host.setAttribute('aria-label',`${name} gallery`);
+  host.addEventListener('keydown',event=>{
+    if(event.target.tagName!=='BUTTON'&&event.target.tagName!=='A'){
+      if(event.key==='ArrowLeft'){event.preventDefault();show(current-1);}
+      else if(event.key==='ArrowRight'){event.preventDefault();show(current+1);}
+    }
+  });
   toolbar.append(previous,count,next);host.append(stage,caption,toolbar,thumbs);show(0);
 }
 
@@ -125,6 +138,7 @@ function selectVersion(index) {
   const version=versions[index];const panel=$('version-panel');panel.replaceChildren();panel.dataset.version=version.id;
   panel.setAttribute('aria-labelledby',versionButtons[index].id);
   versionButtons.forEach((button,i)=>{button.setAttribute('aria-selected',String(i===index));button.tabIndex=i===index?0:-1;});
+  versionButtons[index]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
   panel.append(el('p','eyebrow',`V${version.id} / ${version.stage}`),el('h3','version-title',version.title));
   const host=el('div','version-gallery');panel.append(host);gallery(host,version.gallery,`V${version.id}`);
   const history=el('dl','history');
@@ -200,6 +214,7 @@ let scrollPending=false;
 function updateScroll(){
   const available=document.documentElement.scrollHeight-innerHeight;
   $('scroll-progress').style.width=`${available>0?Math.min(100,scrollY/available*100):0}%`;
+  document.querySelector('.site-header')?.classList.toggle('scrolled',scrollY>15);
   let active=0;navLinks.forEach((a,i)=>{if(document.querySelector(a.getAttribute('href')).getBoundingClientRect().top<=160)active=i;});
   navLinks.forEach((a,i)=>{a.classList.toggle('active',i===active);if(i===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});scrollPending=false;
 }
