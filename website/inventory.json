@@ -903,12 +903,23 @@
   },
   {
     "version": "2.1",
+    "filename": "XEMACS.kicad_mod",
+    "path": "Version_2.1/TriBitLux_V2_1/TriBitLux_Custom.pretty/XEMACS.kicad_mod",
+    "type": "kicad_mod",
+    "mime": "application/octet-stream",
+    "category": "KiCad source",
+    "bytes": 56626,
+    "deployable": true,
+    "note": ""
+  },
+  {
+    "version": "2.1",
     "filename": "TriBitLux_V2_1.kicad_pcb",
     "path": "Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pcb",
     "type": "kicad_pcb",
     "mime": "application/octet-stream",
     "category": "KiCad source",
-    "bytes": 750976,
+    "bytes": 799025,
     "deployable": true,
     "note": ""
   },
@@ -958,6 +969,28 @@
   },
   {
     "version": "2.1",
+    "filename": "BCu_Routing.png",
+    "path": "Version_2.1/assets/BCu_Routing.png",
+    "type": "png",
+    "mime": "image/png",
+    "category": "Photographs and diagrams",
+    "bytes": 859620,
+    "deployable": true,
+    "note": ""
+  },
+  {
+    "version": "2.1",
+    "filename": "FCu_Routing.png",
+    "path": "Version_2.1/assets/FCu_Routing.png",
+    "type": "png",
+    "mime": "image/png",
+    "category": "Photographs and diagrams",
+    "bytes": 974390,
+    "deployable": true,
+    "note": ""
+  },
+  {
+    "version": "2.1",
     "filename": "Schematic.png",
     "path": "Version_2.1/assets/Schematic.png",
     "type": "png",
@@ -974,7 +1007,7 @@
     "type": "png",
     "mime": "image/png",
     "category": "Photographs and diagrams",
-    "bytes": 5046244,
+    "bytes": 5386615,
     "deployable": true,
     "note": ""
   },
@@ -985,7 +1018,7 @@
     "type": "png",
     "mime": "image/png",
     "category": "Photographs and diagrams",
-    "bytes": 1355123,
+    "bytes": 1487621,
     "deployable": true,
     "note": ""
   },
@@ -996,7 +1029,7 @@
     "type": "png",
     "mime": "image/png",
     "category": "Photographs and diagrams",
-    "bytes": 5399589,
+    "bytes": 5404396,
     "deployable": true,
     "note": ""
   },
@@ -1007,7 +1040,7 @@
     "type": "png",
     "mime": "image/png",
     "category": "Photographs and diagrams",
-    "bytes": 5802492,
+    "bytes": 5801810,
     "deployable": true,
     "note": ""
   },
@@ -1084,7 +1117,7 @@
     "type": "zip",
     "mime": "application/zip",
     "category": "Manufacturing",
-    "bytes": 146811,
+    "bytes": 162150,
     "deployable": true,
     "note": "Historical archive; predates current board changes. Regenerate and review before ordering."
   },

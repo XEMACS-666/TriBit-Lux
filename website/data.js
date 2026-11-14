@@ -68,10 +68,26 @@ export const versions = [
     challenge:'Combining the logic path with the LED buffer and preparing the SMT assembly files. Supplier orientation and physical validation remain open.',
     outcome:'56 electrical parts: 39 SMT and 17 through-hole, verified from the current BOM. The README records zero DRC errors and 57 remaining warnings on 30 October.',
     note:'Not fabricated or bench-tested. Saved renders predate the final label-alignment pass. The existing Gerber ZIP is historical and must be regenerated before ordering.',
-    gallery:[asset('2.1','TriBitLux_V2_1_Top.png','Populated top · CAD render by XEMACS'),asset('2.1','TriBitLux_V2_1_Top(Non-Populated).png','Front · labels and placement'),asset('2.1','TriBitLux_V2_1_Bottom.png','Back · threshold guide and repository QR'),asset('2.1','TriBitLux_V2_1_Layout.png','Layout · copper routing and placement'),asset('2.1','Schematic.png','V2.1 circuit schematic',{full:'Version_2.1/schematic/TriBitLux_V2_1.svg'})]
+    gallery:[
+      asset('2.1','TriBitLux_V2_1_Top.png','Populated top · CAD render by XEMACS'),
+      asset('2.1','TriBitLux_V2_1_Top(Non-Populated).png','Front · labels and placement'),
+      asset('2.1','TriBitLux_V2_1_Bottom.png','Back · threshold guide and repository QR'),
+      asset('2.1','TriBitLux_V2_1_Layout.png','Layout · copper routing and placement'),
+      asset('2.1','FCu_Routing.png','Front copper routing · F.Cu layer'),
+      asset('2.1','BCu_Routing.png','Back copper routing · B.Cu layer'),
+      asset('2.1','Schematic.png','V2.1 circuit schematic',{full:'Version_2.1/schematic/TriBitLux_V2_1.svg'})
+    ]
   }
 ];
 export const pcbViews = {
-  '2.1': [{label:'Populated',index:0},{label:'Front',index:1},{label:'Back',index:2},{label:'Copper / layout',index:3},{label:'Schematic',index:4}],
+  '2.1': [
+    {label:'Populated',index:0},
+    {label:'Front',index:1},
+    {label:'Back',index:2},
+    {label:'Layout',index:3},
+    {label:'Front copper',index:4},
+    {label:'Back copper',index:5},
+    {label:'Schematic',index:6}
+  ],
   '2.0': [{label:'Populated',index:0},{label:'Front',index:1},{label:'Back',index:2},{label:'Copper / layout',index:3},{label:'Schematic',index:4}]
 };

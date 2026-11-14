@@ -1,15 +1,15 @@
 # TriBit Lux website integration
 
-Implemented locally on 13 November 2026. No commit, push, deployment or GitHub Pages setting change was made.
+Implemented locally on 13 November 2026; updated on 14 November 2026 to add V2.1 front and back copper routing views (`FCu_Routing.png` and `BCu_Routing.png`). No commit, push, deployment or GitHub Pages setting change was made.
 
 ## Files
 
 - `index.html`: standalone portfolio with home, ADC lab, evolution, PCB showcase, technical documentation and resources.
 - `website/styles.css`: original dark green electronics palette, responsive layouts, light theme and reduced-motion support.
-- `website/data.js`: documented histories and curated original media for all eight versions.
+- `website/data.js`: documented histories and curated original media for all eight versions, including V2.1 front and back copper routing layers.
 - `website/adc.js`: ideal 2.5 V quantizer and digit patterns.
 - `website/app.js`: galleries, native dialog lightbox, simulation controls, navigation and resource filters.
-- `website/inventory.json` / `inventory.csv`: 123 inventoried originals and previews; 106 tracked files offered in the resource browser.
+- `website/inventory.json` / `inventory.csv`: 126 inventoried originals and previews; 109 tracked files offered in the resource browser.
 - `website/tools/build_inventory.py`: regenerates the inventory without modifying originals.
 - `website/tools/check.mjs`: repeatable ADC, file, case-sensitive path and optional HTTP checks.
 - `_includes/head-custom.html`: reduced to a valid head fragment. The complete Canva HTML had been stored here; no root index existed in this checkout. Its palette and display interaction informed the new standalone page. The Canva bootstrap, SDKs, CDN scripts, inline editor styles and runtime GitHub media discovery are removed from the active site.

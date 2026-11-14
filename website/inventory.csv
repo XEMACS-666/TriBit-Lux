@@ -81,23 +81,26 @@ version,filename,path,type,mime,category,bytes,deployable,note
 2.1,README.md,Version_2.1/README.md,md,application/octet-stream,Documentation and schematic,6188,False,Local only; not in tracked deployment
 2.1,QR.kicad_mod,Version_2.1/TriBitLux_V2_1/TriBitLux_Custom.pretty/QR.kicad_mod,kicad_mod,application/octet-stream,KiCad source,286955,True,
 2.1,TL431_TO92_Body4.1x3.1mm_P1.27mm.kicad_mod,Version_2.1/TriBitLux_V2_1/TriBitLux_Custom.pretty/TL431_TO92_Body4.1x3.1mm_P1.27mm.kicad_mod,kicad_mod,application/octet-stream,KiCad source,3321,True,
-2.1,TriBitLux_V2_1.kicad_pcb,Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pcb,kicad_pcb,application/octet-stream,KiCad source,750976,True,
+2.1,XEMACS.kicad_mod,Version_2.1/TriBitLux_V2_1/TriBitLux_Custom.pretty/XEMACS.kicad_mod,kicad_mod,application/octet-stream,KiCad source,56626,True,
+2.1,TriBitLux_V2_1.kicad_pcb,Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pcb,kicad_pcb,application/octet-stream,KiCad source,799025,True,
 2.1,TriBitLux_V2_1.kicad_pro,Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_pro,kicad_pro,application/octet-stream,KiCad source,15206,True,
 2.1,TriBitLux_V2_1.kicad_sch,Version_2.1/TriBitLux_V2_1/TriBitLux_V2_1.kicad_sch,kicad_sch,application/octet-stream,KiCad source,239466,True,
 2.1,fp-lib-table,Version_2.1/TriBitLux_V2_1/fp-lib-table,library-table,application/octet-stream,KiCad source,526,False,Local only; not in tracked deployment
 2.1,sym-lib-table,Version_2.1/TriBitLux_V2_1/sym-lib-table,library-table,application/octet-stream,KiCad source,224,False,Local only; not in tracked deployment
+2.1,BCu_Routing.png,Version_2.1/assets/BCu_Routing.png,png,image/png,Photographs and diagrams,859620,True,
+2.1,FCu_Routing.png,Version_2.1/assets/FCu_Routing.png,png,image/png,Photographs and diagrams,974390,True,
 2.1,Schematic.png,Version_2.1/assets/Schematic.png,png,image/png,Photographs and diagrams,609696,True,
-2.1,TriBitLux_V2_1_Bottom.png,Version_2.1/assets/TriBitLux_V2_1_Bottom.png,png,image/png,Photographs and diagrams,5046244,True,
-2.1,TriBitLux_V2_1_Layout.png,Version_2.1/assets/TriBitLux_V2_1_Layout.png,png,image/png,Photographs and diagrams,1355123,True,
-2.1,TriBitLux_V2_1_Top(Non-Populated).png,Version_2.1/assets/TriBitLux_V2_1_Top(Non-Populated).png,png,image/png,Photographs and diagrams,5399589,True,
-2.1,TriBitLux_V2_1_Top.png,Version_2.1/assets/TriBitLux_V2_1_Top.png,png,image/png,Photographs and diagrams,5802492,True,
+2.1,TriBitLux_V2_1_Bottom.png,Version_2.1/assets/TriBitLux_V2_1_Bottom.png,png,image/png,Photographs and diagrams,5386615,True,
+2.1,TriBitLux_V2_1_Layout.png,Version_2.1/assets/TriBitLux_V2_1_Layout.png,png,image/png,Photographs and diagrams,1487621,True,
+2.1,TriBitLux_V2_1_Top(Non-Populated).png,Version_2.1/assets/TriBitLux_V2_1_Top(Non-Populated).png,png,image/png,Photographs and diagrams,5404396,True,
+2.1,TriBitLux_V2_1_Top.png,Version_2.1/assets/TriBitLux_V2_1_Top.png,png,image/png,Photographs and diagrams,5801810,True,
 2.1,SMT-assembly.md,Version_2.1/bom/SMT-assembly.md,md,application/octet-stream,Documentation and schematic,4873,False,Local only; not in tracked deployment
 2.1,TriBitLux_V2_1.csv,Version_2.1/bom/TriBitLux_V2_1.csv,csv,text/csv,Manufacturing,1093,True,
 2.1,TriBitLux_V2_1_JLCPCB_SMT.csv,Version_2.1/bom/TriBitLux_V2_1_JLCPCB_SMT.csv,csv,text/csv,Manufacturing,730,True,
 2.1,TriBitLux_V2_1-top-pos.csv,Version_2.1/cpl/TriBitLux_V2_1-top-pos.csv,csv,text/csv,Manufacturing,3750,True,
 2.1,TriBitLux_V2_1_JLCPCB_SMT_CPL.csv,Version_2.1/cpl/TriBitLux_V2_1_JLCPCB_SMT_CPL.csv,csv,text/csv,Manufacturing,1093,True,
 2.1,placement-corrections.json,Version_2.1/cpl/placement-corrections.json,json,application/json,Documentation and schematic,577,False,Local only; not in tracked deployment
-2.1,gerber.zip,Version_2.1/gerber/gerber.zip,zip,application/zip,Manufacturing,146811,True,Historical archive; predates current board changes. Regenerate and review before ordering.
+2.1,gerber.zip,Version_2.1/gerber/gerber.zip,zip,application/zip,Manufacturing,162150,True,Historical archive; predates current board changes. Regenerate and review before ordering.
 2.1,Added-labels-2026-10-29.json,Version_2.1/review/Added-labels-2026-10-29.json,json,application/json,Documentation and schematic,5297,False,Local only; not in tracked deployment
 2.1,Alignment-2026-10-30.json,Version_2.1/review/Alignment-2026-10-30.json,json,application/json,Documentation and schematic,8652,False,Local only; not in tracked deployment
 2.1,Assembly-export-2026-10-28.json,Version_2.1/review/Assembly-export-2026-10-28.json,json,application/json,Documentation and schematic,898,False,Local only; not in tracked deployment
