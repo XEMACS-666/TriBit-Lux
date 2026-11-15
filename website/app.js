@@ -17,6 +17,16 @@ function drawDisplay(node, digit) {
   });
 }
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
+// Bring a strip item into view by scrolling only the strip itself, never the page.
+// Element.scrollIntoView() also scrolls every ancestor, which is what used to drag the whole
+// page down to the PCB section as soon as it loaded.
+function revealInStrip(item, instant = false) {
+  const strip = item?.parentElement;
+  if (!strip || strip.scrollWidth <= strip.clientWidth + 1) return;
+  const s = strip.getBoundingClientRect(), r = item.getBoundingClientRect();
+  const left = strip.scrollLeft + (r.left - s.left) - (s.width - r.width) / 2;
+  strip.scrollTo({left, behavior: instant || motion.matches ? 'auto' : 'smooth'});
+}
 let heroPaused = motion.matches, heroDigit = 0;
 function setHeroPaused(paused) {
   heroPaused=paused;
@@ -25,7 +35,7 @@ function setHeroPaused(paused) {
 }
 function renderVoltage() {
   const result=quantize($('voltage').value);
-  $('voltage').style.setProperty('--pct', `${(result.voltage / REFERENCE) * 100}%`);
+  $('voltage').style.setProperty('--p', (result.voltage / REFERENCE).toFixed(5)); // 0-1 fill ratio, read by the slider track
   $('voltage-readout').textContent=`${result.voltage.toFixed(4)} V`;
   $('voltage').setAttribute('aria-valuetext', `${result.voltage.toFixed(4)} volts, level ${result.level}`);
   document.querySelectorAll('.threshold-row').forEach((row,i)=>{
@@ -85,7 +95,7 @@ function gallery(host, items, name, viewLabels) {
   const previous=el('button','','← Previous'), next=el('button','','Next →'), count=el('span');
   previous.type=next.type='button'; previous.setAttribute('aria-label',`Previous ${name} image`);next.setAttribute('aria-label',`Next ${name} image`);
   caption.setAttribute('aria-live','polite'); thumbs.setAttribute('aria-label',`${name} gallery thumbnails`);
-  let current=0;
+  let current=0, shown=false;
   const buttons=items.map((item,i)=>{
     const button=el('button','thumb');button.type='button';button.setAttribute('aria-label',`Show ${item.caption}`);
     const image=el('img');image.src=url(item.poster||item.path);image.alt='';image.loading='lazy';
@@ -105,7 +115,7 @@ function gallery(host, items, name, viewLabels) {
     }
     caption.textContent=item.caption;count.textContent=`${current+1} / ${items.length}`;
     buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===current)));
-    buttons[current]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+    revealInStrip(buttons[current], !shown); shown=true;
   }
   previous.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>show(current+1));
   previous.disabled=next.disabled=items.length<2;
@@ -133,12 +143,13 @@ const versionButtons=versions.map((version,index)=>{
   });
   $('version-nav').append(button);return button;
 });
+let versionsShown=false;
 function selectVersion(index) {
   $('version-panel').querySelector('video')?.pause();
   const version=versions[index];const panel=$('version-panel');panel.replaceChildren();panel.dataset.version=version.id;
   panel.setAttribute('aria-labelledby',versionButtons[index].id);
   versionButtons.forEach((button,i)=>{button.setAttribute('aria-selected',String(i===index));button.tabIndex=i===index?0:-1;});
-  versionButtons[index]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+  revealInStrip(versionButtons[index], !versionsShown); versionsShown=true;
   panel.append(el('p','eyebrow',`V${version.id} / ${version.stage}`),el('h3','version-title',version.title));
   const host=el('div','version-gallery');panel.append(host);gallery(host,version.gallery,`V${version.id}`);
   const history=el('dl','history');
@@ -203,6 +214,8 @@ function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expand
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus();}});
+// The menu button disappears once the links fit inline (decided in CSS); reset its state then.
+addEventListener('resize',()=>{if(getComputedStyle(menu).display==='none')closeMenu();});
 function setTheme(light) {
   document.body.classList.toggle('light',light);$('theme-toggle').setAttribute('aria-pressed',String(light));$('theme-toggle').setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');
   document.querySelector('meta[name="theme-color"]').content=light?'#f1f5f0':'#0b1112';
@@ -215,7 +228,9 @@ function updateScroll(){
   const available=document.documentElement.scrollHeight-innerHeight;
   $('scroll-progress').style.width=`${available>0?Math.min(100,scrollY/available*100):0}%`;
   document.querySelector('.site-header')?.classList.toggle('scrolled',scrollY>15);
-  let active=0;navLinks.forEach((a,i)=>{if(document.querySelector(a.getAttribute('href')).getBoundingClientRect().top<=160)active=i;});
+  // A section is "current" once its top passes a line just below the sticky header.
+  const line=document.querySelector('.site-header').offsetHeight+Math.min(innerHeight*.1,100);
+  let active=0;navLinks.forEach((a,i)=>{if(document.querySelector(a.getAttribute('href')).getBoundingClientRect().top<=line)active=i;});
   navLinks.forEach((a,i)=>{a.classList.toggle('active',i===active);if(i===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});scrollPending=false;
 }
 addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateScroll);}},{passive:true});addEventListener('resize',updateScroll);updateScroll();
