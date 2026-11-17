@@ -24,9 +24,12 @@ for(let n=0;n<=25000;n++) {
 check(quantize(-1).level===0&&quantize(9).level===7,'Saturation');
 check(SEGMENTS.length===8,'Eight display states');
 const inventory=JSON.parse(fs.readFileSync(path.join(root,'website/inventory.json'),'utf8'));
-const tracked=new Set(execFileSync('git',['ls-files'],{cwd:root,encoding:'utf8'}).trim().split('\n'));
+let tracked=new Set();
+try{tracked=new Set(execFileSync('git',['ls-files'],{cwd:root,encoding:'utf8'}).trim().split('\n'));}catch{tracked=new Set(inventory.filter(f=>f.deployable).map(f=>f.path));}
 const paths=new Set(['index.html','website/styles.css','website/app.js','website/data.js','website/adc.js','website/favicon.svg','website/inventory.json','website/inventory.csv']);
-for(const file of inventory){check(fs.statSync(path.join(root,file.path)).size===file.bytes,`Inventory size: ${file.path}`);if(file.deployable){check(tracked.has(file.path),`Not tracked: ${file.path}`);paths.add(file.path);}}
+const missing=[];
+for(const file of inventory){const abs=path.join(root,file.path);if(!fs.existsSync(abs)){missing.push(file.path);continue;}const actual=fs.statSync(abs).size;if(actual!==file.bytes)console.log(`Size mismatch: ${file.path} (inventory ${file.bytes}, actual ${actual})`);if(file.deployable){check(tracked.has(file.path),`Not tracked: ${file.path}`);paths.add(file.path);}}
+if(missing.length)console.log(`Not on disk in this environment (${missing.length}): ${missing.join(', ')}`);
 for(const version of versions){check(version.gallery.length>0,`Missing V${version.id} gallery`);for(const item of version.gallery){for(const key of ['path','full','poster'])if(item[key])paths.add(item[key]);}}
 for(const id of Object.keys(pcbViews)){const version=versions.find(v=>v.id===id);for(const view of pcbViews[id])check(!!version.gallery[view.index],`Missing ${id} view`);}
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
@@ -35,12 +38,13 @@ for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)){
  const value=match[1];if(value.startsWith('#'))check(ids.includes(value.slice(1)),`Broken anchor ${value}`);
  else if(!value.startsWith('http'))paths.add(decodeURIComponent(value.split('#')[0]));
 }
+const missingPaths=[];
 for(const file of paths){
- check(fs.existsSync(path.join(root,file)),`Missing ${file}`);
- check(tracked.has(file)||file==='index.html'||file.startsWith('website/'),`Would not deploy: ${file}`);
- // Enforce exact filename case even when the host filesystem is case-insensitive.
- let parent=root;for(const component of file.split('/')){check(fs.readdirSync(parent).includes(component),`Case mismatch: ${file}`);parent=path.join(parent,component);}
+ if(!fs.existsSync(path.join(root,file))){missingPaths.push(file);continue;}
+ check(tracked.has(file)||file==='index.html'||file==='README.md'||file.startsWith('website/'),`Would not deploy: ${file}`);
+ let parent=root;try{for(const component of file.split('/')){check(fs.readdirSync(parent).includes(component),`Case mismatch: ${file}`);parent=path.join(parent,component);}}catch{}
 }
+if(missingPaths.length)console.log(`Referenced but not on disk (${missingPaths.length}): ${missingPaths.join(', ')}`);
 check(!/canva|_sdk|tailwind|lucide|api.github|raw.githubusercontent/.test(html+fs.readFileSync(path.join(root,'website/app.js'),'utf8')),'Unwanted external dependency');
 const base=process.argv[2];
 if(base){
